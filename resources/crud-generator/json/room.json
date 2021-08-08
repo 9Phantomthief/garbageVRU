@@ -1,0 +1,29 @@
+{
+    "fields": [
+        {
+            "name": "Room",
+            "type": "string"
+        },
+        {
+            "name": "type",
+            "type": "select",
+            "options": {
+                "1": "1",
+                "2": "2",
+                "3": "3"
+            }
+        },
+        {
+            "name": "image",
+            "type": "file"
+        },
+        {
+            "name": "Other",
+            "type": "string"
+        },
+        {
+            "name": "status",
+            "type": "string"
+        }
+    ]
+}

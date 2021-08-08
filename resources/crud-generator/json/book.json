@@ -1,0 +1,24 @@
+{
+    "fields": [
+        {
+            "name": "IDroom",
+            "type": "string"
+        },
+        {
+            "name": "IDBook",
+            "type": "string"
+        },
+        {
+            "name": "book",
+            "type": "timestamp"
+        },
+        {
+            "name": "IDreturn",
+            "type": "string"
+        },
+        {
+            "name": "return",
+            "type": "timestamp"
+        }
+    ]
+}

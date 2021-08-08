@@ -1,0 +1,24 @@
+{
+    "fields": [
+        {
+            "name": "CodeSubject",
+            "type": "string"
+        },
+        {
+            "name": "NameSubject",
+            "type": "string"
+        },
+        {
+            "name": "sect",
+            "type": "string"
+        },
+        {
+            "name": "lecturer",
+            "type": "string"
+        },
+        {
+            "name": "room",
+            "type": "string"
+        }
+    ]
+}

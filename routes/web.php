@@ -1,9 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ListController;
-use App\Models\Alldata;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,22 +14,23 @@ use App\Models\Alldata;
 */
 
 Route::get('/', function () {
-   return view('auth/login');
+    return view('welcome');
 });
 
 Auth::routes();
 
-Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('admin/home', 'HomeController@adminHome')->name('admin.home')->middleware('is_admin');
 
-Route::get('admin/create', [ListController::class, 'create'])->name('create')->middleware('is_admin');
+Route::middleware(['auth', 'is_admin:1'])->group(function () {
+    Route::resource('room', 'RoomController');
+    Route::resource('subject', 'SubjectController');
+    
 
-
-//Route::get('/createList', function () {
-//      return view('createList');
-//      });
-
-//Route::middleware(['auth', 'is_admin:1'])->group(function () {
-//   //Route::get('createList', [ListController::class,'create'])->name('create');
-//   });
+    });
+    
 
 
+
+
+Route::resource('book', 'BookController');
