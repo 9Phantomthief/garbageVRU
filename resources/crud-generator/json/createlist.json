@@ -1,0 +1,33 @@
+{
+    "fields": [
+        {
+            "name": "name",
+            "type": "string"
+        },
+        {
+            "name": "garbageA",
+            "type": "float"
+
+        },
+        {
+            "name": "garbageB",
+            "type": "float"
+        },
+        {
+            "name": "garbageC",
+            "type": "float"
+        },
+        {
+            "name": "garbageD",
+            "type": "float"
+        },
+        {
+            "name": "other",
+            "type": "string"
+        },
+        {
+            "name": "valueOther",
+            "type": "float"
+        }
+    ]
+}
