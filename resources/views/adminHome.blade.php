@@ -8,8 +8,9 @@
     <div class="justify-content-center">
         <div class="col-lg-6">
             <div class="row">
-                    <a  href="{{ url('/garbage') }}" class="btn btn-success btn-lg" " title="บันทึกรายการขยะ">บันทึกรายการขยะ</a>
-                    <a  href="{{ url('/report') }}" class="btn btn-info btn-lg" " title="รายงาน">รายงาน</a>
+                    <a  href="{{ url('/garbage') }}" class="btn btn-info btn-lg" style="font-family: 'Kanit', sans-serif; font-size: 18px" title="บันทึกรายการขยะ">บันทึกรายการขยะ</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a  href="{{ url('/report') }}" class="btn btn-warning btn-lg" style="font-family: 'Kanit', sans-serif; font-size: 18px" title="รายงาน">รายงาน</a>
             </div>
         </div>    
     </div>
@@ -26,8 +27,8 @@
                             </div>
                             <div class="col-7 col-md-8">
                                 <div class="numbers">
-                                    <p class="card-category">ขยะทั่วไป</p>
-                                    <p class="card-title">
+                                    <p class="card-category" style="font-family: 'Kanit', sans-serif; color:black">ขยะทั่วไป</p>
+                                    <p class="card-title" style="font-family: 'Kanit', sans-serif"  >
                                         {{$garbageA}}
                                     </p>
                                 </div>
@@ -37,7 +38,7 @@
                     <div class="card-footer ">
                         <hr>
                         <div class="stats" style="text-align: right;">
-                            <i class="fa fa-refresh"></i>กิโลกรัม
+                            <i class="fa fa-refresh" style="font-family: 'Kanit', sans-serif">กิโลกรัม</i>
                         </div>
                     </div>
                 </div>
@@ -53,8 +54,8 @@
                             </div>
                             <div class="col-7 col-md-8">
                                 <div class="numbers">
-                                    <p class="card-category">ขยะรีไซเคิล</p>
-                                    <p class="card-title">
+                                    <p class="card-category"  style="font-family: 'Kanit', sans-serif; color:black">ขยะรีไซเคิล</p>
+                                    <p class="card-title" style="font-family: 'Kanit', sans-serif">
                                     {{$garbageB}}
                                         <p>
                                 </div>
@@ -64,7 +65,7 @@
                     <div class="card-footer ">
                         <hr>
                         <div class="stats" style="text-align: right;">
-                            <i class="fa fa-calendar-o"></i>กิโลกรัม
+                        <i class="fa fa-refresh" style="font-family: 'Kanit', sans-serif">กิโลกรัม</i>
                         </div>
                     </div>
                 </div>
@@ -80,8 +81,8 @@
                             </div>
                             <div class="col-7 col-md-8">
                                 <div class="numbers">
-                                    <p class="card-category">ขยะย่อยสลายได้</p>
-                                    <p class="card-title">
+                                    <p class="card-category" style="font-family: 'Kanit', sans-serif; color:black">ขยะย่อยสลายได้</p>
+                                    <p class="card-title" style="font-family: 'Kanit', sans-serif">
                                         {{$garbageC}}
                                         <p>
                                 </div>
@@ -91,7 +92,7 @@
                     <div class="card-footer ">
                         <hr>
                         <div class="stats" style="text-align: right;">
-                            <i class="fa fa-clock-o"></i>กิโลกรัม
+                        <i class="fa fa-refresh" style="font-family: 'Kanit', sans-serif">กิโลกรัม</i>
                         </div>
                     </div>
                 </div>
@@ -109,8 +110,8 @@
                             </div>
                             <div class="col-7 col-md-8">
                                 <div class="numbers">
-                                    <p class="card-category">ขยะอันตราย</p>
-                                    <p class="card-title">
+                                    <p class="card-category" style="font-family: 'Kanit', sans-serif; color:black">ขยะอันตราย</p>
+                                    <p class="card-title" style="font-family: 'Kanit', sans-serif">
                                         {{$garbageD}}
                                         <p>
                                 </div>
@@ -120,7 +121,7 @@
                     <div class="card-footer ">
                         <hr>
                         <div class="stats" style="text-align: right;">
-                            <i class="fa fa-refresh"></i>กิโลกรัม
+                        <i class="fa fa-refresh" style="font-family: 'Kanit', sans-serif">กิโลกรัม</i>
                         </div>
                     </div>
                 </div>
@@ -136,8 +137,8 @@
                             </div>
                             <div class="col-7 col-md-8">
                                 <div class="numbers">
-                                    <p class="card-category">ขยะห้องปฏิบัติการ</p>
-                                    <p class="card-title">
+                                    <p class="card-category" style="font-family: 'Kanit', sans-serif; color:black">ขยะห้องปฏิบัติการ</p>
+                                    <p class="card-title" style="font-family: 'Kanit', sans-serif">
                                     {{$garbageX}}
                                         <p>
                                 </div>
@@ -147,7 +148,7 @@
                     <div class="card-footer ">
                         <hr>
                         <div class="stats" style="text-align: right;">
-                            <i class="fa fa-refresh"></i>กิโลกรัม
+                        <i class="fa fa-refresh" style="font-family: 'Kanit', sans-serif">กิโลกรัม</i>
                         </div>
                     </div>
                 </div>
@@ -163,8 +164,8 @@
                             </div>
                             <div class="col-7 col-md-8">
                                 <div class="numbers">
-                                    <p class="card-category">ขยะอื่นๆ</p>
-                                    <p class="card-title">
+                                    <p class="card-category" style="font-family: 'Kanit', sans-serif; color:black">ขยะอื่นๆ</p>
+                                    <p class="card-title" style="font-family: 'Kanit', sans-serif">
                                         {{$Other}}
                                         <p>
                                 </div>
@@ -174,19 +175,19 @@
                     <div class="card-footer ">
                         <hr>
                         <div class="stats" style="text-align: right;">
-                            <i class="fa fa-refresh"></i>กิโลกรัม
+                        <i class="fa fa-refresh" style="font-family: 'Kanit', sans-serif">กิโลกรัม</i>
                         </div>
                     </div>
                 </div>
             </div>            
         </div>
-        {{$gA}}
+        <!-- {{$gA}} -->
         <div class="row">
             <div class="col-md-12">
                 <div class="card ">
                     <div class="card-header ">
-                        <h5 class="card-title">กราฟแสดงรายละเอียดขยะเป็นเวลา 5 เดือน</h5>
-
+                        <h5 class="card-title" style="font-family: 'Kanit', sans-serif; color:black">กราฟแสดงรายละเอียดขยะเป็นเวลา 5 เดือน</h5>
+{{$gA}}
                     </div>
                     <div class="card-body ">
                         <canvas id=chartgarbage width="400" height="100"></canvas>
@@ -282,7 +283,7 @@
 
                     <div class="card-footer ">
                         <hr>
-                        <div class="stats">
+                        <div class="stats"  style="font-family: 'Kanit', sans-serif; color:black">
                             <i class="fa fa-history"></i> Updated - minutes ago
                         </div>
                     </div>

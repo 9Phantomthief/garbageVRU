@@ -53,6 +53,7 @@ class HomeController extends Controller
             ->get();
 
         
+        
 
         return view ('adminHome', compact('garbageA','garbageB','garbageC','garbageD','garbageX','Other','gA'));
     }

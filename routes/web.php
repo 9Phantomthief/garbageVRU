@@ -28,4 +28,4 @@ Route::get('admin/home', 'HomeController@total')->name('admin.home')->middleware
 
 
 Route::resource('garbage', 'garbageController');
-Route::get('report', 'garbageController@report');
+Route::get('report', 'garbageController@showreport');

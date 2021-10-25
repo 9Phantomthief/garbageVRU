@@ -25,7 +25,7 @@ class garbage extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'garbageA', 'garbageB', 'garbageC', 'garbageD','garbageX', 'other', 'valueOther','building'];
+    protected $fillable = ['name', 'garbageA', 'garbageB', 'garbageC', 'garbageD','garbageX', 'other', 'valueOther','building','Note'];
 
     
 }

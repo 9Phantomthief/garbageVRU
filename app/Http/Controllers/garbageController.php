@@ -29,6 +29,7 @@ class garbageController extends Controller
                 ->orWhere('garbageD', 'LIKE', "%$keyword%")
                 ->orWhere('garbageX', 'LIKE', "%$keyword%")
                 ->orWhere('other', 'LIKE', "%$keyword%")
+                ->orWhere('Note', 'LIKE', "%$keyword%")
                 ->orWhere('valueOther', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
@@ -37,6 +38,11 @@ class garbageController extends Controller
 
         return view('garbage.index', compact('garbage'));
     }
+
+    public function showreport()
+        {
+          return view('garbage.report');
+        }
 
  
     /**

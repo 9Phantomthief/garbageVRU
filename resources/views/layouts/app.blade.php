@@ -18,7 +18,8 @@
 
     <!-- Styles -->
    
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" >
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <!-- CSS Files -->
@@ -27,15 +28,20 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{ asset('demo/demo.css') }}" rel="stylesheet" />
 </head>
-<body style="background-color: whitesmoke;">
+<body style="background-color: #9FE2BF;">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-success shadow-sm">
             <div class="container">
                 
+                <img src="{{ asset('image/logo01.png') }}", style="height: 90px; width: 100px" >
 
-            <a class="navbar-brand"   href="{{ url('admin/home') }}">
-                ระบบสารสนเทศด้านการจัดการขยะ
-                </a>
+                <div class="row">
+                    <a class="navbar-brand"   href="{{ url('admin/home') }}" style="font-size: 28px; font-weight: bold; font-family: 'Kanit', sans-serif; color:black">
+                    &nbsp;&nbsp;&nbsp;มหาวิทยาลัยราชภัฏวไลยอลงกรณ์&nbsp;&nbsp;ในพระบรมราชูปถัมภ์</a>
+                    <div class="w-100"></div>
+                    <div class="col" style="font-size: 18px; font-weight: bold; font-family: 'Kanit', sans-serif; color:black">&nbsp;&nbsp;ระบบสารสนเทศด้านการจัดการขยะ</div>
+
+                </div>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -61,12 +67,12 @@
 
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 15px; font-family: 'Kanit', sans-serif; color:black">
                                     {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" >
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item" href="{{ route('logout') }}" style="font-size: 15px; font-family: 'Kanit', sans-serif; color:black"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -88,6 +94,12 @@
         </main>
     </div>
 
+    <footer class="navbar navbar-expand-lg navbar-light bg-success shadow-lg" style=" bottom: 0; width: 100% ">
+            <div class="container" >
+                <a style="text-align: center; font-size: 18px; font-weight: bold; font-family: 'Kanit', sans-serif; color:black">Copyright © มหาวิทยาลัยราชภัฏวไลยอลงกรณ์ ในพระบรมราชูปถัมภ์ <br>เลขที่ 1 หมู่ 20 ต.คลองหนึ่ง อ.คลองหลวง จ.ปทุมธานี 13180</a>
+            </div>
+    </footer>
+
     <script src="{{ asset('js/core/jquery.min.js') }}"></script>
     <script src="{{ asset('js/core/popper.min.js') }}"></script>
     <script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
@@ -105,6 +117,7 @@
     <!-- Sharrre libray -->
     <script src="{{ asset('demo/jquery.sharrre.js') }}"></script>
 
+    
 
 </body>
 </html>
