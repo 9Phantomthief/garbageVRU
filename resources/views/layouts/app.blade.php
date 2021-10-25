@@ -94,9 +94,11 @@
         </main>
     </div>
 
-    <footer class="navbar navbar-expand-lg navbar-light bg-success shadow-lg" style=" bottom: 0; width: 100% ">
-            <div class="container" >
-                <a style="text-align: center; font-size: 18px; font-weight: bold; font-family: 'Kanit', sans-serif; color:black">Copyright © มหาวิทยาลัยราชภัฏวไลยอลงกรณ์ ในพระบรมราชูปถัมภ์ <br>เลขที่ 1 หมู่ 20 ต.คลองหนึ่ง อ.คลองหลวง จ.ปทุมธานี 13180</a>
+    <footer class=" bg-success shadow-lg sticky-footer" style=" bottom: 0; width: 100% ">
+            <div class="container my-auto" >
+                <div class="copyright text-center my-auto">
+                    <a style="text-align: center; font-size: 18px; font-weight: bold; font-family: 'Kanit', sans-serif; color:black">Copyright © มหาวิทยาลัยราชภัฏวไลยอลงกรณ์ ในพระบรมราชูปถัมภ์ <br>เลขที่ 1 หมู่ 20 ต.คลองหนึ่ง อ.คลองหลวง จ.ปทุมธานี 13180</a>
+                </div>
             </div>
     </footer>
 
