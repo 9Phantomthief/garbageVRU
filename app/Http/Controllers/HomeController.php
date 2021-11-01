@@ -49,7 +49,7 @@ class HomeController extends Controller
 
         $gA = garbage::Select(DB::raw('sum(garbageA) as total_gA'),
                               DB::raw('MONTH(created_at) as month'))
-            ->groupby('month')
+            ->groupBy('month')
             ->get();
 
         $orderCountByMonth = garbage::select( DB::raw('YEAR(created_at) as year'), 
