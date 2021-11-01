@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
         return view('home');
     }
-     /**
+    /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -47,26 +47,84 @@ class HomeController extends Controller
         $garbageX = garbage::select('garbageX')->get()->sum('garbageX');
         $Other    = garbage::select('valueOther')->get()->sum('valueOther');
 
-        $gA = garbage::select(DB::raw('sum("garbageA") as total_gA'),DB::raw('YEAR("created_at") as year'),
-                              DB::raw('DATE_FORMAT("created_at", "%M") as month'))
-            ->whereYear('created_at', date('Y')) 
-            ->groupBy('month','year') 
-            ->get();   
-
-        $CountByMonth = garbage::select( DB::raw('YEAR("created_at") as year'), 
-                             DB::raw('DATE_FORMAT("created_at", "%M") as month') ) 
-            ->whereYear('created_at', date('Y')) 
-            ->groupBy('month','year') 
-            ->get();       
 
 
-        
+        $gA = garbage::select(
+            DB::raw('sum(garbageA) as total_gA'),
+            DB::raw('YEAR(created_at) as year'),
+            DB::raw('MONTH(created_at) as month')
+        )
+            ->whereYear('created_at', date('Y'))
+            ->groupBy('year', 'month')
+            ->latest()->take(5)
+            ->get();
 
-        return view ('adminHome', compact('garbageA','garbageB','garbageC','garbageD','garbageX','Other','gA','CountByMonth'));
+        $gB = garbage::select(
+            DB::raw('sum(garbageB) as total_gB'),
+            DB::raw('YEAR(created_at) as year'),
+            DB::raw('MONTH(created_at) as month')
+        )
+            ->whereYear('created_at', date('Y'))
+            ->groupBy('year', 'month')
+            ->latest()->take(5)
+            ->get();
+
+        $gC = garbage::select(
+            DB::raw('sum(garbageC) as total_gC'),
+            DB::raw('YEAR(created_at) as year'),
+            DB::raw('MONTH(created_at) as month')
+        )
+            ->whereYear('created_at', date('Y'))
+            ->groupBy('year', 'month')
+            ->latest()->take(5)
+            ->get();
+
+        $gD = garbage::select(
+            DB::raw('sum(garbageD) as total_gD'),
+            DB::raw('YEAR(created_at) as year'),
+            DB::raw('MONTH(created_at) as month')
+        )
+            ->whereYear('created_at', date('Y'))
+            ->groupBy('year', 'month')
+            ->latest()->take(5)
+            ->get();
+
+        $gX = garbage::select(
+            DB::raw('sum(garbageX) as total_gX'),
+            DB::raw('YEAR(created_at) as year'),
+            DB::raw('MONTH(created_at) as month')
+        )
+            ->whereYear('created_at', date('Y'))
+            ->groupBy('year', 'month')
+            ->latest()->take(5)
+            ->get();
+
+        $gO = garbage::select(
+            DB::raw('sum(valueOther) as total_gO'),
+            DB::raw('YEAR(created_at) as year'),
+            DB::raw('MONTH(created_at) as month')
+        )
+            ->whereYear('created_at', date('Y'))
+            ->groupBy('year', 'month')
+            ->latest()->take(5)
+            ->get();
+        // $gA = garbage::Select(DB::raw('sum(garbageA) as total_gA'),
+        //                       DB::raw('MONTH(created_at) as month'))
+        //     ->groupby('month')
+        //     ->get();
+
+
+        // $orderCountByMonth = garbage::select( DB::raw('YEAR(created_at) as year'), 
+        //                      DB::raw('DATE_FORMAT(created_at, "%M") as month') ) 
+        //     ->whereYear('created_at', date('Y')) 
+        //     ->groupBy('month','year') 
+        //     ->get();
+
+
+
+
+
+
+        return view('adminHome', compact('garbageA', 'garbageB', 'garbageC', 'garbageD', 'garbageX', 'Other', 'gA', 'gB', 'gC', 'gD', 'gX', 'gO'));
     }
-
-
 }
-
-// INSERT INTO users (name, email, is_admin, password)
-// VALUES (admin, admin@vru.ac.th, 1, 1234);

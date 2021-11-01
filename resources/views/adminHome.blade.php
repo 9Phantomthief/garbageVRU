@@ -196,14 +196,30 @@
 
                     <script>
                         var ctx = document.getElementById("chartgarbage").getContext('2d');
-                        var gA = @json($gA); 
-                        // var gA = [{…}, {…}, {…}, {…}, {…}]
+
+                        var gA = @json($gA).reverse(); 
+                        var x = gA.map(function(item){return item.month + "/" + item.year  });
                         var yA = gA.map(function(item){return Math.round(item.total_gA) });
-                        console.log(gA,yA);
+
+                        var gB = @json($gB).reverse(); 
+                        var yB = gB.map(function(item){return Math.round(item.total_gB) });
+
+                        var gC = @json($gC).reverse(); 
+                        var yC = gC.map(function(item){return Math.round(item.total_gC) });
+
+                        var gD = @json($gD).reverse(); 
+                        var yD = gD.map(function(item){return Math.round(item.total_gD) });
+
+                        var gX = @json($gX).reverse(); 
+                        var yX = gX.map(function(item){return Math.round(item.total_gX) });
+
+                        var gO = @json($gO).reverse(); 
+                        var yO = gO.map(function(item){return Math.round(item.total_gO) });
+
                         var myChart = new Chart(ctx, {
                             type: 'bar',
                             data: {
-                                labels: ['10/2021', '11/2021', '12/2021', '01/2022', '02/2021'],
+                                labels: x,
                                 datasets: [{
                                         label: "ขยะทั่วไป",
                                         backgroundColor: "blue",
@@ -213,27 +229,27 @@
                                     {
                                         label: "ขยะรีไซเคิล",
                                         backgroundColor: "red",
-                                        data: [4, 3, 5, 6, 2, 8]
+                                        data: yB
                                     },
                                     {
                                         label: "ขยะย่อยสลายได้",
                                         backgroundColor: "green",
-                                        data: [7, 2, 6, 7, 4, 9]
+                                        data: yC
                                     },
                                     {
                                         label: "ขยะอันตราย",
                                         backgroundColor: "purple",
-                                        data: [7, 2, 6, 3, 3, 4]
+                                        data: yD
                                     },
                                     {
                                         label: "ขยะห้องปฏิบัติการ",
                                         backgroundColor: "brown",
-                                        data: [7, 2, 6, 9, 8, 1]
+                                        data: yX
                                     },
                                     {
                                         label: "ขยะอื่นๆ",
                                         backgroundColor: "yellow",
-                                        data: [7, 2, 6, 9, 8, 1]
+                                        data: yO
                                     }
                                 ]
                             },
@@ -251,21 +267,15 @@
 
                 </div>
 
-                <div class="card-footer ">
+                <!-- <div class="card-footer ">
                     <hr>
                     <div class="stats" style="font-family: 'Kanit', sans-serif; color:black">
                         <i class="fa fa-history"></i> Updated - minutes ago
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
-
-    {{$gA}} <br>
-    {{$orderCountByMonth}}
-
-
-    <!-- <?php echo $gA; ?> -->
 
 
     @endsection
