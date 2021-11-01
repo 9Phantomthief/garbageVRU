@@ -4,7 +4,6 @@
 </button>
 
 
-<!-- ฟอร์มโมดอล Create -->
 <div class="modal fade " id="CreateProject" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
     style="color:black; font-weight: bold;">
@@ -29,6 +28,8 @@
                     
                     <input class="form-control" name="name" type="text" id="name" value="{{ isset($garbage->name) ? $garbage->name : ''}}" >
                     {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
+
+                    
             </div>
         </div>
         <div class="col-md-6">
@@ -53,6 +54,7 @@
                     </div>
                     {!! $errors->first('garbageA', '<p class="help-block">:message</p>') !!}
             </div>
+            <h3 for="name" class="control-label" style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px ">{{ 'กิโลกรัม' }}</h3>
         </div>
     </div>
     <div class="col-md-6">
@@ -65,6 +67,7 @@
                     </div>
                     {!! $errors->first('garbageB', '<p class="help-block">:message</p>') !!}
             </div>
+            <h3 for="name" class="control-label" style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px ">{{ 'กิโลกรัม' }}</h3>
         </div><br>
     </div>
 </div>
@@ -80,6 +83,7 @@
                     </div>
                     {!! $errors->first('garbageC', '<p class="help-block">:message</p>') !!}
             </div>
+            <h3 for="name" class="control-label" style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px ">{{ 'กิโลกรัม' }}</h3>
         </div>
     </div>
     <div class="col-md-6">
@@ -92,6 +96,7 @@
                     </div>
                     {!! $errors->first('garbageD', '<p class="help-block">:message</p>') !!}
             </div>
+            <h3 for="name" class="control-label" style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px ">{{ 'กิโลกรัม' }}</h3>
         </div><br>
     </div>
 </div>
@@ -107,6 +112,7 @@
                     </div>
                     {!! $errors->first('garbageX', '<p class="help-block">:message</p>') !!}
             </div>
+            <h3 for="name" class="control-label" style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px ">{{ 'กิโลกรัม' }}</h3>
         </div>
     </div>
     <div class="col-md-6">
@@ -143,6 +149,7 @@
                     </div>
                 {!! $errors->first('valueOther', '<p class="help-block">:message</p>') !!}
             </div>
+            <h3 for="name" class="control-label" style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px ">{{ 'กิโลกรัม' }}</h3>
         </div>
     </div>
 </div>
