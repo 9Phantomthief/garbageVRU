@@ -40,17 +40,18 @@ class HomeController extends Controller
 
     public function total(Request $request)
     {
-        $garbageA = garbage::Select('garbageA')->get()->sum('garbageA');
-        $garbageB = garbage::Select('garbageB')->get()->sum('garbageB');
-        $garbageC = garbage::Select('garbageC')->get()->sum('garbageC');
-        $garbageD = garbage::Select('garbageD')->get()->sum('garbageD');
-        $garbageX = garbage::Select('garbageX')->get()->sum('garbageX');
-        $Other    = garbage::Select('valueOther')->get()->sum('valueOther');
+        $garbageA = garbage::select('garbageA')->get()->sum('garbageA');
+        $garbageB = garbage::select('garbageB')->get()->sum('garbageB');
+        $garbageC = garbage::select('garbageC')->get()->sum('garbageC');
+        $garbageD = garbage::select('garbageD')->get()->sum('garbageD');
+        $garbageX = garbage::select('garbageX')->get()->sum('garbageX');
+        $Other    = garbage::select('valueOther')->get()->sum('valueOther');
 
-        $gA = garbage::Select(DB::raw('sum(garbageA) as total_gA'),
-                              DB::raw('MONTH(created_at) as month'))
-            ->groupBy('month')
-            ->get();
+        $gA = garbage::select(DB::raw('sum(garbageA) as total_gA'),DB::raw('YEAR(created_at) as year'),
+                              DB::raw('DATE_FORMAT(created_at, "%M") as month'))
+            ->whereYear('created_at', date('Y')) 
+            ->groupBy('month','year') 
+            ->get();   
 
         $orderCountByMonth = garbage::select( DB::raw('YEAR(created_at) as year'), 
                              DB::raw('DATE_FORMAT(created_at, "%M") as month') ) 
