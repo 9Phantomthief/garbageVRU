@@ -16,7 +16,8 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "2.4",
-        "laravelcollective/html": "^6.2"
+        "laravelcollective/html": "^6.2",
+        "nesbot/carbon": "^2.61"
     },
     "require-dev": {
         "appzcoder/crud-generator": "^3.2",

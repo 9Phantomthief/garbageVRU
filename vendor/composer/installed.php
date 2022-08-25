@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => 'f3b45da476bff3a6a5e910db60051e45c3ff6963',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -401,12 +401,12 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => 'f3b45da476bff3a6a5e910db60051e45c3ff6963',
             'dev_requirement' => false,
         ),
         'laravel/tinker' => array(
@@ -494,12 +494,12 @@
             ),
         ),
         'nesbot/carbon' => array(
-            'pretty_version' => '2.50.0',
-            'version' => '2.50.0.0',
+            'pretty_version' => '2.61.0',
+            'version' => '2.61.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../nesbot/carbon',
             'aliases' => array(),
-            'reference' => 'f47f17d17602b2243414a44ad53d9f8b9ada5fdb',
+            'reference' => 'bdf4f4fe3a3eac4de84dbec0738082a862c68ba6',
             'dev_requirement' => false,
         ),
         'nikic/php-parser' => array(

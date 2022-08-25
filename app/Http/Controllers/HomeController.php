@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\garbage;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -47,9 +48,9 @@ class HomeController extends Controller
         $garbageX = garbage::select('garbageX')->get()->sum('garbageX');
         $Other    = garbage::select('valueOther')->get()->sum('valueOther');
 
-        $lastmonth = date ("Y/m/d");
+        $lastmonth = date ("Y-m H:i:s");
         
-        $lastmonth5 = date ('Y/m/d', strtotime ($lastmonth . "-5 Months"));
+        $lastmonth5 = date ('Y-m H:i:s', strtotime ($lastmonth . "-4 Months"));
 
         $gA = garbage::select(
             DB::raw('sum(garbageA) as total_gA'),
