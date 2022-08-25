@@ -64,6 +64,9 @@ class garbageController extends Controller
      */
     public function store(Request $request)
     {
+        if(! $request->filled('Note')) {
+            $request['Note'] = '-';
+        }
         
         $requestData = $request->all();
         
