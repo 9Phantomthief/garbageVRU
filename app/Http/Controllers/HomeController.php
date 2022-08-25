@@ -47,14 +47,17 @@ class HomeController extends Controller
         $garbageX = garbage::select('garbageX')->get()->sum('garbageX');
         $Other    = garbage::select('valueOther')->get()->sum('valueOther');
 
-
+        $lastmonth = date ("Y/m/d");
+        
+        $lastmonth5 = date ('Y/m/d', strtotime ($lastmonth . "-5 Months"));
 
         $gA = garbage::select(
             DB::raw('sum(garbageA) as total_gA'),
             DB::raw('YEAR(created_at) as year'),
             DB::raw('MONTH(created_at) as month')
         )
-            ->whereYear('created_at', date('Y'))
+            // ->whereYear('created_at', date('Y'))
+            ->whereBetween('created_at', [$lastmonth, $lastmonth5])
             ->groupBy('year', 'month')
             ->orderBy('month' , 'ASC')
             ->latest()->take(5)
@@ -65,7 +68,8 @@ class HomeController extends Controller
             DB::raw('YEAR(created_at) as year'),
             DB::raw('MONTH(created_at) as month')
         )
-            ->whereYear('created_at', date('Y'))
+            // ->whereYear('created_at', date('Y'))
+            ->whereBetween('created_at', [$lastmonth, $lastmonth5])
             ->groupBy('year', 'month')
             ->orderBy('month' , 'ASC')
             ->latest()->take(5)
@@ -76,7 +80,8 @@ class HomeController extends Controller
             DB::raw('YEAR(created_at) as year'),
             DB::raw('MONTH(created_at) as month')
         )
-            ->whereYear('created_at', date('Y'))
+            // ->whereYear('created_at', date('Y'))
+            ->whereBetween('created_at', [$lastmonth, $lastmonth5])
             ->groupBy('year', 'month')
             ->orderBy('month' , 'ASC')
             ->latest()->take(5)
@@ -87,7 +92,8 @@ class HomeController extends Controller
             DB::raw('YEAR(created_at) as year'),
             DB::raw('MONTH(created_at) as month')
         )
-            ->whereYear('created_at', date('Y'))
+            // ->whereYear('created_at', date('Y'))
+            ->whereBetween('created_at', [$lastmonth, $lastmonth5])
             ->groupBy('year', 'month')
             ->orderBy('month' , 'ASC')
             ->latest()->take(5)
@@ -98,7 +104,8 @@ class HomeController extends Controller
             DB::raw('YEAR(created_at) as year'),
             DB::raw('MONTH(created_at) as month')
         )
-            ->whereYear('created_at', date('Y'))
+            // ->whereYear('created_at', date('Y'))
+            ->whereBetween('created_at', [$lastmonth, $lastmonth5])
             ->groupBy('year', 'month')
             ->orderBy('month' , 'ASC')
             ->latest()->take(5)
@@ -109,9 +116,9 @@ class HomeController extends Controller
             DB::raw('YEAR(created_at) as year'),
             DB::raw('MONTH(created_at) as month')
         )
-            ->whereYear('created_at', date('Y'))
+            // ->whereYear('created_at', date('Y'))
+            ->whereBetween('created_at', [$lastmonth, $lastmonth5])
             ->groupBy('year', 'month')
-            ->orderBy('month' , 'ASC')
             ->latest()->take(5)
             ->get();
         // $gA = garbage::Select(DB::raw('sum(garbageA) as total_gA'),
@@ -125,8 +132,9 @@ class HomeController extends Controller
         //     ->whereYear('created_at', date('Y')) 
         //     ->groupBy('month','year') 
         //     ->get();
-
-
+            
+            echo $lastmonth;
+            echo $lastmonth5;
 
 
 
