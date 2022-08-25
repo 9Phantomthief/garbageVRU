@@ -56,6 +56,7 @@ class HomeController extends Controller
         )
             ->whereYear('created_at', date('Y'))
             ->groupBy('year', 'month')
+            ->orderBy('month' , 'ASC')
             ->latest()->take(5)
             ->get();
 
@@ -66,6 +67,7 @@ class HomeController extends Controller
         )
             ->whereYear('created_at', date('Y'))
             ->groupBy('year', 'month')
+            ->orderBy('month' , 'ASC')
             ->latest()->take(5)
             ->get();
 
@@ -76,6 +78,7 @@ class HomeController extends Controller
         )
             ->whereYear('created_at', date('Y'))
             ->groupBy('year', 'month')
+            ->orderBy('month' , 'ASC')
             ->latest()->take(5)
             ->get();
 
@@ -86,6 +89,7 @@ class HomeController extends Controller
         )
             ->whereYear('created_at', date('Y'))
             ->groupBy('year', 'month')
+            ->orderBy('month' , 'ASC')
             ->latest()->take(5)
             ->get();
 
@@ -96,6 +100,7 @@ class HomeController extends Controller
         )
             ->whereYear('created_at', date('Y'))
             ->groupBy('year', 'month')
+            ->orderBy('month' , 'ASC')
             ->latest()->take(5)
             ->get();
 
@@ -106,6 +111,7 @@ class HomeController extends Controller
         )
             ->whereYear('created_at', date('Y'))
             ->groupBy('year', 'month')
+            ->orderBy('month' , 'ASC')
             ->latest()->take(5)
             ->get();
         // $gA = garbage::Select(DB::raw('sum(garbageA) as total_gA'),
