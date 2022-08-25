@@ -14,7 +14,7 @@ class CreateDadadaTable extends Migration
     public function up()
     {
         Schema::table('garbages', function (Blueprint $table) {
-            $table->string('Note');
+            $table->string('Note')->nullable();
         });
     }
 
