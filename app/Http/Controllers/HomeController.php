@@ -48,21 +48,38 @@ class HomeController extends Controller
         $garbageX = garbage::select('garbageX')->get()->sum('garbageX');
         $Other    = garbage::select('valueOther')->get()->sum('valueOther');
 
-        $lastmonth = date ("Y-m H:i:s");
+        $date_now = date ("Y-m-d");
+        $lastmonth_sp = explode("-",$date_now);
+        $lastmonth = $lastmonth_sp[1];
         
-        $lastmonth5 = date ('Y-m H:i:s', strtotime ($lastmonth . "-4 Months"));
+        $lastmonth5_st = date ('Y-m-d', strtotime ($date_now . "-4 Months"));
+        $lastmonth5_sp = explode("-",$lastmonth5_st);
+        $lastmonth5 = $lastmonth5_sp[1];
+
+        // echo $lastmonth;
+        // echo "<br>" ;
+        // echo $lastmonth5;
 
         $gA = garbage::select(
             DB::raw('sum(garbageA) as total_gA'),
             DB::raw('YEAR(created_at) as year'),
             DB::raw('MONTH(created_at) as month')
         )
-            // ->whereYear('created_at', date('Y'))
-            ->whereBetween('created_at', [$lastmonth, $lastmonth5])
+            ->whereYear('created_at', date('Y'))
+            ->whereMonth('created_at', ">=" , $lastmonth5 )
+            ->whereMonth('created_at', "<=" , $lastmonth )
             ->groupBy('year', 'month')
             ->orderBy('month' , 'ASC')
             ->latest()->take(5)
             ->get();
+
+        // foreach ($gA as $key ) {
+        //     echo "<br>" ;
+        //     echo "<br>" ;
+        //     echo $key->month ;
+        // }
+
+        // exit();
 
         $gB = garbage::select(
             DB::raw('sum(garbageB) as total_gB'),
@@ -134,8 +151,7 @@ class HomeController extends Controller
         //     ->groupBy('month','year') 
         //     ->get();
             
-            echo $lastmonth;
-            echo $lastmonth5;
+            
 
 
 
