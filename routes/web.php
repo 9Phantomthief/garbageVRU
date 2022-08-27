@@ -25,8 +25,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('admin/home', 'HomeController@adminHome')->name('admin.home')->middleware('is_admin');
 Route::get('admin/home', 'HomeController@total')->name('admin.home')->middleware('is_admin');
-
-
 Route::resource('garbage', 'garbageController');
-Route::get('report', 'garbageController@showreport');
-Route::get('pdf', 'PDFController@pdf_index');
+Route::get('report', 'reportController@index');
+

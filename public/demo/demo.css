@@ -187,3 +187,15 @@
   outline: none;
   display: none;
 }
+
+.button2 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+  text-align: center;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}

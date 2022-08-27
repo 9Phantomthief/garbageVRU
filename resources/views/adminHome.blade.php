@@ -186,7 +186,9 @@
         <div class="col-md-12">
             <div class="card ">
                 <div class="card-header ">
-                    <h5 class="card-title" style="font-family: 'Kanit', sans-serif; color:black">กราฟแสดงรายละเอียดขยะเป็นเวลา 5 เดือน</h5>
+                    <h5 class="card-title" style="font-family: 'Kanit', sans-serif; color:black">กราฟแสดงรายละเอียดขยะเป็นเวลา 5 เดือน
+                    <a style="float: right;">หน่วย : กิโลกรัม</a>
+                </h5>
 
                 </div>
                 <div class="card-body ">
@@ -197,24 +199,38 @@
                     <script>
                         var ctx = document.getElementById("chartgarbage").getContext('2d');
 
-                        var gA = @json($gA).reverse(); 
-                        var x = gA.map(function(item){return item.month + "/" + item.year  });
-                        var yA = gA.map(function(item){return Math.round(item.total_gA) });
+                        var gA = @json($gA).reverse();
+                        var x = gA.map(function(item) {
+                            return item.month + "/" + item.year
+                        });
+                        var yA = gA.map(function(item) {
+                            return Math.round(item.total_gA)
+                        });
 
-                        var gB = @json($gB).reverse(); 
-                        var yB = gB.map(function(item){return Math.round(item.total_gB) });
+                        var gB = @json($gB).reverse();
+                        var yB = gB.map(function(item) {
+                            return Math.round(item.total_gB)
+                        });
 
-                        var gC = @json($gC).reverse(); 
-                        var yC = gC.map(function(item){return Math.round(item.total_gC) });
+                        var gC = @json($gC).reverse();
+                        var yC = gC.map(function(item) {
+                            return Math.round(item.total_gC)
+                        });
 
-                        var gD = @json($gD).reverse(); 
-                        var yD = gD.map(function(item){return Math.round(item.total_gD) });
+                        var gD = @json($gD).reverse();
+                        var yD = gD.map(function(item) {
+                            return Math.round(item.total_gD)
+                        });
 
-                        var gX = @json($gX).reverse(); 
-                        var yX = gX.map(function(item){return Math.round(item.total_gX) });
+                        var gX = @json($gX).reverse();
+                        var yX = gX.map(function(item) {
+                            return Math.round(item.total_gX)
+                        });
 
-                        var gO = @json($gO).reverse(); 
-                        var yO = gO.map(function(item){return Math.round(item.total_gO) });
+                        var gO = @json($gO).reverse();
+                        var yO = gO.map(function(item) {
+                            return Math.round(item.total_gO)
+                        });
 
                         var myChart = new Chart(ctx, {
                             type: 'bar',
@@ -222,33 +238,32 @@
                                 labels: x,
                                 datasets: [{
                                         label: "ขยะทั่วไป",
-                                        backgroundColor: "blue",
-                                        // data: [6, 7, 4, 8, 2, 5]
+                                        backgroundColor: '#003EFF',
                                         data: yA
                                     },
                                     {
                                         label: "ขยะรีไซเคิล",
-                                        backgroundColor: "red",
+                                        backgroundColor: '#D6313B',
                                         data: yB
                                     },
                                     {
                                         label: "ขยะย่อยสลายได้",
-                                        backgroundColor: "green",
+                                        backgroundColor: '#B3D236',
                                         data: yC
                                     },
                                     {
                                         label: "ขยะอันตราย",
-                                        backgroundColor: "purple",
+                                        backgroundColor: '#D089DC',
                                         data: yD
                                     },
                                     {
                                         label: "ขยะห้องปฏิบัติการ",
-                                        backgroundColor: "brown",
+                                        backgroundColor: '#463327',
                                         data: yX
                                     },
                                     {
                                         label: "ขยะอื่นๆ",
-                                        backgroundColor: "yellow",
+                                        backgroundColor: '#FBC700',
                                         data: yO
                                     }
                                 ]
@@ -267,12 +282,6 @@
 
                 </div>
 
-                <!-- <div class="card-footer ">
-                    <hr>
-                    <div class="stats" style="font-family: 'Kanit', sans-serif; color:black">
-                        <i class="fa fa-history"></i> Updated - minutes ago
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>

@@ -1,22 +1,147 @@
 @extends('layouts.app')
-   
+
 @section('content')
 
 <div class="container">
     <div class="row">
-            <div class="col-md-12">
-                <div class="card ">
-                    <div class="card-header ">
-                        <h5 class="card-title" style="font-family: 'Kanit', sans-serif; color:black">ข้อมูลรายงานขยะโดยรวม</h5>
+        <div class="col-md-12">
+            <a class="btn btn-warning btn-lg" style="font-family: 'Kanit', sans-serif; font-size: 18px" href="{{ url('/admin/home') }}" class="btn btn-warning btn-sm" title="ย้อนกลับ">ย้อนกลับ</a>
+            <div class="card ">
+                <div class="card-header ">
+                    <h5 class="card-title" style="font-family: 'Kanit', sans-serif; color:black; margin-left: 30px;">ข้อมูลรายงานขยะโดยรวม
+                        <button type="button" style="font-family: 'Kanit', sans-serif; text-align: center; margin-right: 30px;" class="btn btn btn-sm pull-right">
+                            <i class="fas fa-file-export" aria-hidden="true"></i>PDF
+                        </button>
+                    </h5>
+                </div>
+                <hr>
+
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-9">
+                                        <canvas id=chartgarbage width="400" height="100"></canvas>
+                                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                                        <script>
+                                            var ctx = document.getElementById("chartgarbage").getContext('2d');
+                                            var gA = @json($gA).reverse();
+                                            var yA = gA.map(function(item) {
+                                                return Math.round(item.total_gA)
+                                            });
+                                            var gB = @json($gB).reverse();
+                                            var yB = gB.map(function(item) {
+                                                return Math.round(item.total_gB)
+                                            });
+                                            var gC = @json($gC).reverse();
+                                            var yC = gC.map(function(item) {
+                                                return Math.round(item.total_gC)
+                                            });
+                                            var gD = @json($gD).reverse();
+                                            var yD = gD.map(function(item) {
+                                                return Math.round(item.total_gD)
+                                            });
+                                            var gX = @json($gX).reverse();
+                                            var yX = gX.map(function(item) {
+                                                return Math.round(item.total_gX)
+                                            });
+                                            var gO = @json($gO).reverse();
+                                            var yO = gO.map(function(item) {
+                                                return Math.round(item.total_gO)
+                                            });
+                                            var myChart = new Chart(ctx, {
+                                                type: 'pie',
+                                                data: {
+                                                    labels: 000,
+                                                    datasets: [{
+                                                        label: "ขยะทั่วไป",
+                                                        backgroundColor: ['#003EFF', '#D6313B', '#B3D236', '#D089DC', '#463327', '#FBC700'],
+                                                        data: yA,
+                                                        yB,
+                                                        yC,
+                                                        yD,
+                                                        yX,
+                                                        yO
+                                                    }]
+                                                },
+                                                options: {
+                                                    scales: {
+                                                        yAxes: [{
+                                                            ticks: {
+                                                                beginAtZero: true
+                                                            }
+                                                        }]
+                                                    }
+                                                }
+                                            });
+                                        </script>
+                                    </div>
+                                    <div class="col-3" style="font-family: 'Kanit', sans-serif; color:black;">
+                                        <a>ขยะทั่วไป <br>ขยะย่อยสลายได้ <br>ขยะรีไซเคิล <br>ขยะห้องปฏิบัติการ <br>ขยะอันตราย <br>ขยะอื่นๆ</a>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-6">
+                                <div class="form-group" style="width: 300px; margin: auto;">
+                                    <h4 class="text-box-title" style="font-family: 'Kanit', sans-serif; color:black; text-align: center;">ปี/เดือน</h4>
+                                    <hr>
+                                    <br>
+                                    <form action="" method="">
+                                        <select class="form-control" name="" style="font-family: 'Kanit', sans-serif; color:black;">
+                                            <option value="2566">2566</option>
+                                            <option value="2565">2565</option>
+                                            <option value="2564">2564</option>
+                                            <option value="2563">2563</option>
+                                            <option value="2562">2562</option>
+                                            <option value="2561">2561</option>
+                                            <option value="2560">2560</option>
+                                            <option value="2559">2559</option>
+                                            <option value="2558">2558</option>
+                                            <option value="2557">2557</option>
+                                            <option value="2556">2556</option>
+                                        </select>
+                                    </form>
+                                </div><br>
+                                <div class="d-flex justify-content-between">
+                                    <button type="submit" form="from" value="Submit" class="button2" style="font-family: 'Kanit', sans-serif; font-size: 18px; margin: auto;">search</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
+                <div class="card-body">
+                    <div class="container">
+                        <div style="border-style: groove;">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="row"></div>
+                                    <div class="col-6">
+                                        <h5 class="card-title" style="font-family: 'Kanit', sans-serif; color:black">จำนวนขยะแต่ละประเภท</h5>
+                                        <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะทั่วไป : {{$garbageA}}</p>
+                                        <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะย่อยสลายได้ : {{$garbageB}}</p>
+                                        <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะรีไซเคิล : {{$garbageC}}</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <h5 class="card-title" style="font-family: 'Kanit', sans-serif; color:black"></h5>
+                                        <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะทั่วไป : {{$garbageA}}</p>
+                                        <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะย่อยสลายได้ : {{$garbageB}}</p>
+                                        <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะรีไซเคิล : {{$garbageC}}</p>
+                                    </div>
+                                </div>
+                            </div>
 
-                    <div class="card-body ">
-
-
+                            <div class="col-6">
+                                //อีกครึ่งขวา
+                            </div>
+                        </div>
                     </div>
-
                 </div>
             </div>
+        </div>
     </div>
 </div>
 @endsection

@@ -34,6 +34,7 @@ class ComposerStaticInite6b4a60eae03f48caf90641b22bda465
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
+        'e80562809c7194acfc550c34a01dda6b' => __DIR__ . '/..' . '/phattarachai/thaidate/src/function.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -101,6 +102,7 @@ class ComposerStaticInite6b4a60eae03f48caf90641b22bda465
             'Prophecy\\' => 9,
             'PhpParser\\' => 10,
             'PhpOption\\' => 10,
+            'Phattarachai\\Thaidate\\' => 22,
         ),
         'O' => 
         array (
@@ -354,6 +356,10 @@ class ComposerStaticInite6b4a60eae03f48caf90641b22bda465
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
         ),
+        'Phattarachai\\Thaidate\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phattarachai/thaidate/src',
+        ),
         'Opis\\Closure\\' => 
         array (
             0 => __DIR__ . '/..' . '/opis/closure/src',
@@ -524,8 +530,8 @@ class ComposerStaticInite6b4a60eae03f48caf90641b22bda465
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
-        'App\\Http\\Controllers\\PDFController' => __DIR__ . '/../..' . '/app/Http/Controllers/PDFController.php',
         'App\\Http\\Controllers\\garbageController' => __DIR__ . '/../..' . '/app/Http/Controllers/garbageController.php',
+        'App\\Http\\Controllers\\reportController' => __DIR__ . '/../..' . '/app/Http/Controllers/reportController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
@@ -3550,6 +3556,8 @@ class ComposerStaticInite6b4a60eae03f48caf90641b22bda465
         'PharIo\\Version\\VersionConstraintParser' => __DIR__ . '/..' . '/phar-io/version/src/VersionConstraintParser.php',
         'PharIo\\Version\\VersionConstraintValue' => __DIR__ . '/..' . '/phar-io/version/src/VersionConstraintValue.php',
         'PharIo\\Version\\VersionNumber' => __DIR__ . '/..' . '/phar-io/version/src/VersionNumber.php',
+        'Phattarachai\\Thaidate\\Thaidate' => __DIR__ . '/..' . '/phattarachai/thaidate/src/Thaidate.php',
+        'Phattarachai\\Thaidate\\ThaidateServiceProvider' => __DIR__ . '/..' . '/phattarachai/thaidate/src/ThaidateServiceProvider.php',
         'PhpOption\\LazyOption' => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption/LazyOption.php',
         'PhpOption\\None' => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption/None.php',
         'PhpOption\\Option' => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption/Option.php',

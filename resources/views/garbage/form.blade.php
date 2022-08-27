@@ -1,5 +1,5 @@
 <!-- ปุ่มโมดอล Create -->
-<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#CreateProject" style="float:right; font-family: 'Kanit', sans-serif" class="btn btn-success btn-sm">
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#CreateProject" style="font-family: 'Kanit', sans-serif; font-size: 18px" >
     เพิ่มข้อมูล
 </button>
 

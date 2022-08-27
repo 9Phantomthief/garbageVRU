@@ -5,41 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\garbage;
 use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
 
-class HomeController extends Controller
+class reportController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
-        return view('home');
-    }
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function adminHome()
-    {
-        return view('adminHome');
-    }
-
-
-    public function total(Request $request)
+    public function index(Request $request)
     {
         $garbageA = garbage::select('garbageA')->get()->sum('garbageA');
         $garbageB = garbage::select('garbageB')->get()->sum('garbageB');
@@ -56,14 +25,6 @@ class HomeController extends Controller
         $lastmonth5_sp = explode("-",$lastmonth5_st);
         $lastmonth5 = $lastmonth5_sp[1];
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-        
-
-=======
->>>>>>> 44309cffe2e560ea59a69d4a67c74d186fda444c
->>>>>>> Stashed changes
         // echo $lastmonth;
         // echo "<br>" ;
         // echo $lastmonth5;
@@ -80,17 +41,6 @@ class HomeController extends Controller
             ->orderBy('month' , 'ASC')
             ->latest()->take(5)
             ->get();
-            
-
-
-
-        // foreach ($gA as $key ) {
-        //     echo "<br>" ;
-        //     echo "<br>" ;
-        //     echo $key->month ;
-        // }
-
-        // exit();
 
         // foreach ($gA as $key ) {
         //     echo "<br>" ;
@@ -164,8 +114,6 @@ class HomeController extends Controller
             ->orderBy('month' , 'ASC')
             ->latest()->take(5)
             ->get();
-<<<<<<< HEAD
-=======
         // $gA = garbage::Select(DB::raw('sum(garbageA) as total_gA'),
         //                       DB::raw('MONTH(created_at) as month'))
         //     ->groupby('month')
@@ -181,9 +129,8 @@ class HomeController extends Controller
             
 
 
->>>>>>> 44309cffe2e560ea59a69d4a67c74d186fda444c
 
 
-        return view('adminHome', compact('garbageA', 'garbageB', 'garbageC', 'garbageD', 'garbageX', 'Other', 'gA', 'gB', 'gC', 'gD', 'gX', 'gO'));
+        return view('garbage.report', compact('garbageA', 'garbageB', 'garbageC', 'garbageD', 'garbageX', 'Other', 'gA', 'gB', 'gC', 'gD', 'gX', 'gO'));
     }
 }
