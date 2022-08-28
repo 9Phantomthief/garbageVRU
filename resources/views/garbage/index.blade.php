@@ -23,7 +23,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h5 style="font-family: 'Kanit', sans-serif; color:black; margin-left: 30px;">รายการ
+                    <h5 style="font-family: 'Kanit', sans-serif; color:black; margin-left: 30px;">รายการขยะ<a style="float: right;">หน่วย : กิโลกรัม</a>
                     </h5>
                 </div>
                 <div class="table-responsive-md">

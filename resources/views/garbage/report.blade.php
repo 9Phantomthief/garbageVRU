@@ -8,7 +8,7 @@
             <a class="btn btn-warning btn-lg" style="font-family: 'Kanit', sans-serif; font-size: 18px" href="{{ url('/admin/home') }}" class="btn btn-warning btn-sm" title="ย้อนกลับ">ย้อนกลับ</a>
             <div class="card ">
                 <div class="card-header ">
-                    <h5 class="card-title" style="font-family: 'Kanit', sans-serif; color:black; margin-left: 30px;">ข้อมูลรายงานขยะโดยรวม
+                    <h5 class="card-title" style="font-family: 'Kanit', sans-serif; color:black; margin-left: 30px;"><u>ข้อมูลรายงานขยะโดยรวม หน่วย : กิโลกรัม</u>
                         <button type="button" style="font-family: 'Kanit', sans-serif; text-align: center; margin-right: 30px;" class="btn btn btn-sm pull-right">
                             <i class="fas fa-file-export" aria-hidden="true"></i>PDF
                         </button>
@@ -112,32 +112,159 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div><hr>
                 <div class="card-body">
                     <div class="container">
-                        <div style="border-style: groove;">
+                        
                             <div class="row">
                                 <div class="col-6">
-                                    <div class="col-6">
-                                        <h5 class="card-title" style="font-family: 'Kanit', sans-serif; color:black">จำนวนขยะแต่ละประเภท</h5>
-                                        <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะทั่วไป : {{$garbageA}}</p>
-                                        <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะย่อยสลายได้ : {{$garbageB}}</p>
-                                        <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะรีไซเคิล : {{$garbageC}}</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <h5 class="card-title" style="font-family: 'Kanit', sans-serif; color:black"></h5>
-                                        <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะทั่วไป : {{$garbageA}}</p>
-                                        <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะย่อยสลายได้ : {{$garbageB}}</p>
-                                        <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะรีไซเคิล : {{$garbageC}}</p>
+                                    <h5 class="card-title" style="font-family: 'Kanit', sans-serif; color:black; margin-left: 10px"><u>จำนวนขยะแต่ละประเภทต่อเดือน</u></h5>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะทั่วไป : {{$garbageA}} กิโลกรัม</p>
+                                            <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะรีไซเคิล  : {{$garbageB}} กิโลกรัม</p>
+                                            <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะย่อยสลายได้: {{$garbageC}} กิโลกรัม</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะอันตราย : {{$garbageD}} กิโลกรัม</p>
+                                            <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะห้องปฏิบัติการ : {{$garbageX}} กิโลกรัม</p>
+                                            <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะอื่นๆ : {{$Other}} กิโลกรัม</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    //อีกครึ่งขวา
+
                                 </div>
                             </div>
-                        </div>
+                        
+                    </div>
+                </div><hr>
+
+                <div class="card-body">
+                    <div class="container">
+                        <h5 class="card-title" style="font-family: 'Kanit', sans-serif; color:black; margin-left: 10px"><u>จำนวนขยะแต่ละอาคารต่อเดือน</u><a style="float: right;">หน่วย : กิโลกรัม</a></h5>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ชื่ออาคาร</th>
+                                        <th scope="col">วันที่</th>
+                                        <th scope="col">ขยะทั่วไป</th>
+                                        <th scope="col">ขยะรีไซเคิล</th>
+                                        <th scope="col">ขยะย่อยสลายได้</th>
+                                        <th scope="col">ขยะอันตราย</th>
+                                        <th scope="col">ขยะห้องปฏิบัติการ</th>
+                                        <th scope="col">ขยะอื่นๆ</th>
+                                        <th scope="col">หมายเหตุ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" rowspan="5" style="text-align: center;">1</th>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" rowspan="5" style="text-align: center;">2</th>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

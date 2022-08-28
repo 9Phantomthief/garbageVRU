@@ -56,18 +56,6 @@ class HomeController extends Controller
         $lastmonth5_sp = explode("-",$lastmonth5_st);
         $lastmonth5 = $lastmonth5_sp[1];
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-        
-
-=======
->>>>>>> 44309cffe2e560ea59a69d4a67c74d186fda444c
->>>>>>> Stashed changes
-        // echo $lastmonth;
-        // echo "<br>" ;
-        // echo $lastmonth5;
-
         $gA = garbage::select(
             DB::raw('sum(garbageA) as total_gA'),
             DB::raw('YEAR(created_at) as year'),
@@ -164,24 +152,7 @@ class HomeController extends Controller
             ->orderBy('month' , 'ASC')
             ->latest()->take(5)
             ->get();
-<<<<<<< HEAD
-=======
-        // $gA = garbage::Select(DB::raw('sum(garbageA) as total_gA'),
-        //                       DB::raw('MONTH(created_at) as month'))
-        //     ->groupby('month')
-        //     ->get();
 
-
-        // $orderCountByMonth = garbage::select( DB::raw('YEAR(created_at) as year'), 
-        //                      DB::raw('DATE_FORMAT(created_at, "%M") as month') ) 
-        //     ->whereYear('created_at', date('Y')) 
-        //     ->groupBy('month','year') 
-        //     ->get();
-            
-            
-
-
->>>>>>> 44309cffe2e560ea59a69d4a67c74d186fda444c
 
 
         return view('adminHome', compact('garbageA', 'garbageB', 'garbageC', 'garbageD', 'garbageX', 'Other', 'gA', 'gB', 'gC', 'gD', 'gX', 'gO'));
