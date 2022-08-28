@@ -118,7 +118,6 @@
                         <div style="border-style: groove;">
                             <div class="row">
                                 <div class="col-6">
-                                    <div class="row"></div>
                                     <div class="col-6">
                                         <h5 class="card-title" style="font-family: 'Kanit', sans-serif; color:black">จำนวนขยะแต่ละประเภท</h5>
                                         <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะทั่วไป : {{$garbageA}}</p>
@@ -132,10 +131,9 @@
                                         <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะรีไซเคิล : {{$garbageC}}</p>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="col-6">
-                                //อีกครึ่งขวา
+                                <div class="col-6">
+                                    //อีกครึ่งขวา
+                                </div>
                             </div>
                         </div>
                     </div>
