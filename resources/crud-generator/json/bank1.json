@@ -1,0 +1,13 @@
+{
+    "fields": [
+        {
+            "name": "id_member",
+            "type": "integer"
+        },
+        {
+            "name": "num_re",
+            "type": "float"
+        }
+
+    ]
+}

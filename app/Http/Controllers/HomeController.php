@@ -80,13 +80,6 @@ class HomeController extends Controller
 
         // exit();
 
-        // foreach ($gA as $key ) {
-        //     echo "<br>" ;
-        //     echo "<br>" ;
-        //     echo $key->month ;
-        // }
-
-        // exit();
 
         $gB = garbage::select(
             DB::raw('sum(garbageB) as total_gB'),

@@ -6,11 +6,12 @@
 
 <div class="container">
     <div class="justify-content-center">
-        <div class="col-lg-6">
+        <div class="col-lg-12">
             <div class="row">
                 <a href="{{ url('/garbage') }}" class="btn btn-info btn-lg" style="font-family: 'Kanit', sans-serif; font-size: 18px" title="บันทึกรายการขยะ">บันทึกรายการขยะ</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="{{ url('/report') }}" class="btn btn-warning btn-lg" style="font-family: 'Kanit', sans-serif; font-size: 18px" title="รายงาน">รายงาน</a>
+                <a href="{{ url('/menber') }}" class="btn btn-success btn-lg" style="font-family: 'Kanit', sans-serif; font-size: 18px; position:absolute; right:0%" title="">ธนาคารขยะ</a>
             </div>
         </div>
     </div>

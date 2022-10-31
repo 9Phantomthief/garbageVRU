@@ -1,0 +1,22 @@
+{
+    "fields": [
+        {
+            "name": "name",
+            "type": "string"
+        },
+        {
+            "name": "age",
+            "type": "integer"
+        },
+        {
+            "name": "tel",
+            "type": "string"
+        },
+        {
+            "name": "point",
+            "type": "float"
+
+        }
+
+    ]
+}

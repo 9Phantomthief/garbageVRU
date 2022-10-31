@@ -28,3 +28,6 @@ Route::get('admin/home', 'HomeController@total')->name('admin.home')->middleware
 Route::resource('garbage', 'garbageController');
 Route::get('report', 'reportController@index');
 
+
+Route::resource('menber', 'menberController');
+Route::resource('numre', 'numreController');

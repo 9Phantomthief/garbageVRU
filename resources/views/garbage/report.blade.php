@@ -53,17 +53,17 @@
                                             var myChart = new Chart(ctx, {
                                                 type: 'pie',
                                                 data: {
-                                                    labels: 000,
+                                                    labels: ["ขยะทั่วไป","ขยะรีไซเคิล","ขยะย่อยสลายได้","ขยะอันตราย","ขยะห้องปฏิบัติการ","ขยะอื่นๆ"],
                                                     datasets: [{
-                                                        label: "ขยะทั่วไป",
+                                                        label: ["ขยะทั่วไป","ขยะรีไซเคิล","ขยะย่อยสลายได้","ขยะอันตราย","ขยะห้องปฏิบัติการ","ขยะอื่นๆ"],
                                                         backgroundColor: ['#003EFF', '#D6313B', '#B3D236', '#D089DC', '#463327', '#FBC700'],
-                                                        data: yA,
-                                                        yB,
-                                                        yC,
-                                                        yD,
-                                                        yX,
-                                                        yO
-                                                    }]
+                                                        data:   yA,
+                                                                yB,
+                                                                yC,
+                                                                yD,
+                                                                yX,
+                                                                yO
+                                                    }],
                                                 },
                                                 options: {
                                                     scales: {
@@ -78,7 +78,7 @@
                                         </script>
                                     </div>
                                     <div class="col-3" style="font-family: 'Kanit', sans-serif; color:black;">
-                                        <a>ขยะทั่วไป <br>ขยะย่อยสลายได้ <br>ขยะรีไซเคิล <br>ขยะห้องปฏิบัติการ <br>ขยะอันตราย <br>ขยะอื่นๆ</a>
+                                        
 
                                     </div>
                                 </div>
@@ -123,7 +123,7 @@
                                         <div class="col-6">
                                             <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะทั่วไป : {{$garbageA}} กิโลกรัม</p>
                                             <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะรีไซเคิล  : {{$garbageB}} กิโลกรัม</p>
-                                            <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะย่อยสลายได้: {{$garbageC}} กิโลกรัม</p>
+                                            <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะย่อยสลายได้ : {{$garbageC}} กิโลกรัม</p>
                                         </div>
                                         <div class="col-6">
                                             <p style="font-family: 'Kanit', sans-serif; color:black; font-size: 16px; margin-left: 30px;">ขยะอันตราย : {{$garbageD}} กิโลกรัม</p>
