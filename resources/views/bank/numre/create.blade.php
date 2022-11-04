@@ -2,16 +2,15 @@
 
 @section('content')
     <div class="container">
+        <div class="col-lg-12">
+            <div class="row">
+                <a href="{{ url('/menber') }}" class="btn btn-warning btn-lg" style="font-family: 'Kanit', sans-serif; font-size: 18px" title="[ย้อนกลับ]">ย้อนกลับ</a>
+            </div>
+        </div>
         <div class="row">
-            @include('admin.sidebar')
-
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Create New numre</div>
                     <div class="card-body">
-                        <a href="{{ url('/numre') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                        <br />
-                        <br />
 
                         @if ($errors->any())
                             <ul class="alert alert-danger">

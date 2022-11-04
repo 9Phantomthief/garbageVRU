@@ -36,8 +36,9 @@ class numreController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function create()
+    public function create($id)
     {
+        $numre = numre::findOrFail($id);
         return view('bank.numre.create');
     }
 

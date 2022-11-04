@@ -1,7 +1,9 @@
 <div class="form-group {{ $errors->has('id_member') ? 'has-error' : ''}}">
     <label for="id_member" class="control-label">{{ 'Id Member' }}</label>
-    <input class="form-control" name="id_member" type="number" id="id_member" value="{{ isset($numre->id_member) ? $numre->id_member : ''}}" >
-    {!! $errors->first('id_member', '<p class="help-block">:message</p>') !!}
+    {{-- <h1>{{ $menber->id }}</h1> --}}
+    {{-- <input class="form-control" name="id_member" type="number" id="id_member" value="{{ isset($numre->id_member) ? $numre->id_member : ''}}" >
+    {!! $errors->first('id_member', '<p class="help-block">:message</p>') !!} --}}
+
 </div>
 <div class="form-group {{ $errors->has('num_re') ? 'has-error' : ''}}">
     <label for="num_re" class="control-label">{{ 'Num Re' }}</label>

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\User;
+use App\User;
 
 class CreateSeeder extends Seeder
 {
@@ -14,16 +14,16 @@ class CreateSeeder extends Seeder
     {
         $user = [ 
             [
-                'name' => 'Admin',
-                'email' => 'admin@admin.com',
+                'name' => 'อาคาร 100 ปี',
+                'email' => 'garvru01@vru.com',
                 'is_admin' => '1',
-                'password' => bcrypt('1234')
+                'password' => bcrypt('vru001a')
             ],
             [
-                'name' => 'User',
-                'email' => 'user@user.com',
-                'is_admin' => '0',
-                'password' => bcrypt('1234')
+                'name' => 'อาคาร 75 ปี',
+                'email' => 'garvru02@vru.com',
+                'is_admin' => '1',
+                'password' => bcrypt('vru002b')
             ]
             
         ];

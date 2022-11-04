@@ -25,6 +25,7 @@ class reportController extends Controller
         $lastmonth5_sp = explode("-",$lastmonth5_st);
         $lastmonth5 = $lastmonth5_sp[1];
 
+        $keyword = $request->get('search');
         // echo $lastmonth;
         // echo "<br>" ;
         // echo $lastmonth5;
@@ -126,11 +127,19 @@ class reportController extends Controller
         //     ->groupBy('month','year') 
         //     ->get();
             
+        $building1 = garbage::
+        // Where('created_at', 'LIKE', "%keyword%")
+            where('building', 'LIKE', "%อาคาร 100 ปี%")
+            ->get();
+
+        $building2 = garbage::Where('created_at', 'LIKE', "%%")
+            ->where('building', 'LIKE', "ตึกที่2")
+            ->get();
             
 
 
 
 
-        return view('garbage.report', compact('garbageA', 'garbageB', 'garbageC', 'garbageD', 'garbageX', 'Other', 'gA', 'gB', 'gC', 'gD', 'gX', 'gO'));
+        return view('garbage.report', compact('garbageA', 'garbageB', 'garbageC', 'garbageD', 'garbageX', 'Other', 'gA', 'gB', 'gC', 'gD', 'gX', 'gO','building1'));
     }
 }

@@ -32,7 +32,7 @@
 
 <body style="background-color: #F7F39A;">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm;" style="background-color: #A3DD83;">
+        <nav class="navbar navbar-expand-md navbar-light bg-success shadow-sm">
             <div class="container">
 
                 <img src="{{ asset('image/logo01.png') }}" , style="height: 90px; width: 100px">
@@ -41,7 +41,7 @@
                     <a class="navbar-brand" href="{{ url('admin/home') }}" style="font-size: 28px; font-weight: bold; font-family: 'Kanit', sans-serif; color:black">
                         &nbsp;&nbsp;&nbsp;มหาวิทยาลัยราชภัฏวไลยอลงกรณ์&nbsp;&nbsp;ในพระบรมราชูปถัมภ์</a>
                     <div class="w-100"></div>
-                    <div class="col" style="font-size: 18px; font-weight: bold; font-family: 'Kanit', sans-serif; color:black">&nbsp;&nbsp;ระบบบันทึกธนาคารจัดการขยะ</div>
+                    <div class="col" style="font-size: 18px; font-weight: bold; font-family: 'Kanit', sans-serif; color:black">&nbsp;&nbsp;ระบบธนาคารจัดการขยะ</div>
 
                 </div>
 
@@ -95,7 +95,7 @@
         </main>
     </div>
 
-    <footer class="shadow-lg sticky-footer" style=" bottom: 0; width: 100% ; background-color: #A3DD83;">
+    <footer class="shadow-lg sticky-footer navbar-light bg-success shadow-sm">
         <div class="container my-auto">
             <div class="copyright text-center my-auto">
                 <a style="text-align: center; font-size: 18px; font-weight: bold; font-family: 'Kanit', sans-serif; color:black">Copyright © มหาวิทยาลัยราชภัฏวไลยอลงกรณ์ ในพระบรมราชูปถัมภ์ <br>เลขที่ 1 หมู่ 20 ต.คลองหนึ่ง อ.คลองหลวง จ.ปทุมธานี 13180</a>

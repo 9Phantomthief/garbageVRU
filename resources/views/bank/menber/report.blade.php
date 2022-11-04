@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
 
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <a class="btn btn-warning btn-lg" style="font-family: 'Kanit', sans-serif; font-size: 18px" href="{{ url('/admin/home') }}" class="btn btn-warning btn-sm" title="ย้อนกลับ">ย้อนกลับ</a>
+            <a class="btn btn-warning btn-lg" style="font-family: 'Kanit', sans-serif; font-size: 18px" href="{{ url('/menber') }}" class="btn btn-warning btn-sm" title="ย้อนกลับ">ย้อนกลับ</a>
             <div class="card ">
                 <div class="card-header ">
                     <h5 class="card-title" style="font-family: 'Kanit', sans-serif; color:black; margin-left: 30px;"><u>ข้อมูลรายงานขยะโดยรวม หน่วย : กิโลกรัม</u>
@@ -50,7 +50,6 @@
                                             var yO = gO.map(function(item) {
                                                 return Math.round(item.total_gO)
                                             });
-
                                             var myChart = new Chart(ctx, {
                                                 type: 'pie',
                                                 data: {
@@ -147,34 +146,120 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th style="text-align: center;  font-family: 'Kanit', sans-serif">ชื่ออาคาร</th>
-                                        <th style="text-align: center;  font-family: 'Kanit', sans-serif">วันที่</th>
-                                        <th style="text-align: center;  font-family: 'Kanit', sans-serif">ขยะทั่วไป</th>
-                                        <th style="text-align: center;  font-family: 'Kanit', sans-serif">ขยะรีไซเคิล</th>
-                                        <th style="text-align: center;  font-family: 'Kanit', sans-serif">ขยะย่อยสลายได้</th>
-                                        <th style="text-align: center;  font-family: 'Kanit', sans-serif">ขยะอันตราย</th>
-                                        <th style="text-align: center;  font-family: 'Kanit', sans-serif">ขยะห้องปฏิบัติการ</th>
-                                        <th style="text-align: center;  font-family: 'Kanit', sans-serif">ขยะอื่นๆ</th>
-                                        <th style="text-align: center;  font-family: 'Kanit', sans-serif">หมายเหตุ</th>
+                                        <th scope="col">ชื่ออาคาร</th>
+                                        <th scope="col">วันที่</th>
+                                        <th scope="col">ขยะทั่วไป</th>
+                                        <th scope="col">ขยะรีไซเคิล</th>
+                                        <th scope="col">ขยะย่อยสลายได้</th>
+                                        <th scope="col">ขยะอันตราย</th>
+                                        <th scope="col">ขยะห้องปฏิบัติการ</th>
+                                        <th scope="col">ขยะอื่นๆ</th>
+                                        <th scope="col">หมายเหตุ</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th scope="row" rowspan="5" style="text-align: center;">building</th>
-                                        @foreach($building1 as $item)
-                                        <tr>
-                                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->created_at }}</td>
-                                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->garbageA }}</td>
-                                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->garbageB }}</td>
-                                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->garbageC }}</td>
-                                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->garbageD }}</td>
-                                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->garbageX }}</td>
-                                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->valueOther }}</td>
-                                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->Note }}</td>
-                                        </tr>
-                                        @endforeach
+                                        <th scope="row" rowspan="5" style="text-align: center;">1</th>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
                                     </tr>
-
+                                    <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" rowspan="5" style="text-align: center;">2</th>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
                                 </tbody>
                             </table>
                     </div>

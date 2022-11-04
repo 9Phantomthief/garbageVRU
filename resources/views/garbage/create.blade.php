@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                    <h5 style="font-family: 'Kanit', sans-serif; color:black">&nbsp;&nbsp;&nbsp;&nbsp;เพิ่มข้อมูล
