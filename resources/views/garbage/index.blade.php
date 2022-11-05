@@ -58,11 +58,11 @@
                                 <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->Note }}</td>
                                 <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->building}}</td>
                                 <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->created_at }}</td>
-                                <td><a href="{{ url('/garbage/' . $item->id . '/edit') }}" title="Edit Crud"><button class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></button></a>
+                                <td><a href="{{ url('/garbage/' . $item->id . '/edit') }}" title="แก้ไข"><button class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></button></a>
                                     <form method="POST" action="{{ url('/garbage' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                         {{ method_field('DELETE') }}
                                         {{ csrf_field() }}
-                                        <button type="submit" class="btn btn-danger btn-sm" title="Delete Crud" onclick="return confirm('ยืนยันการลบข้อมูล?')"><i class="fas fa-trash-alt" aria-hidden="true"></i></button>
+                                        <button type="submit" class="btn btn-danger btn-sm" title="ลบ" onclick="return confirm('ยืนยันการลบข้อมูล?')"><i class="fas fa-trash-alt" aria-hidden="true"></i></button>
                                     </form>
                                 </td>
                             </tr>

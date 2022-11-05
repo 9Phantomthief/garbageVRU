@@ -26,9 +26,7 @@ class reportController extends Controller
         $lastmonth5 = $lastmonth5_sp[1];
 
         $keyword = $request->get('search');
-        // echo $lastmonth;
-        // echo "<br>" ;
-        // echo $lastmonth5;
+        $ymsearch = $request->get('ymsearch');
 
         $gA = garbage::select(
             DB::raw('sum(garbageA) as total_gA'),
@@ -42,14 +40,6 @@ class reportController extends Controller
             ->orderBy('month' , 'ASC')
             ->latest()->take(5)
             ->get();
-
-        // foreach ($gA as $key ) {
-        //     echo "<br>" ;
-        //     echo "<br>" ;
-        //     echo $key->month ;
-        // }
-
-        // exit();
 
         $gB = garbage::select(
             DB::raw('sum(garbageB) as total_gB'),
@@ -115,31 +105,47 @@ class reportController extends Controller
             ->orderBy('month' , 'ASC')
             ->latest()->take(5)
             ->get();
-        // $gA = garbage::Select(DB::raw('sum(garbageA) as total_gA'),
-        //                       DB::raw('MONTH(created_at) as month'))
-        //     ->groupby('month')
-        //     ->get();
 
 
-        // $orderCountByMonth = garbage::select( DB::raw('YEAR(created_at) as year'), 
-        //                      DB::raw('DATE_FORMAT(created_at, "%M") as month') ) 
-        //     ->whereYear('created_at', date('Y')) 
-        //     ->groupBy('month','year') 
-        //     ->get();
+            if (!empty($keyword)) {
+                $building1 = garbage::where('created_at', 'LIKE', "%$keyword%")
+                    ->where('building', 'LIKE', "%อาคาร 100 ปี%")
+                    ->latest()
+                    ->get();
+            } else {
+                $building1 = garbage::whereYear('created_at', date('Y'))
+                        ->whereMonth('created_at', "=" , $lastmonth )
+                        ->where('building', 'LIKE', "%อาคาร 100 ปี%")
+                        ->latest()
+                        ->get();
+            }
             
-        $building1 = garbage::
-        // Where('created_at', 'LIKE', "%keyword%")
-            where('building', 'LIKE', "%อาคาร 100 ปี%")
-            ->get();
+            if (!empty($keyword)) {
+                $building2 = garbage::where('created_at', 'LIKE', "%$keyword%")
+                    ->where('building', 'LIKE', "%อาคาร 75 ปี%")
+                    ->latest()
+                    ->get();
+            } else {
+                $building2 = garbage::whereYear('created_at', date('Y'))
+                        ->whereMonth('created_at', "=" , $lastmonth )
+                        ->where('building', 'LIKE', "%อาคาร 75 ปี%")
+                        ->latest()
+                        ->get();
+            }
 
-        $building2 = garbage::Where('created_at', 'LIKE', "%%")
-            ->where('building', 'LIKE', "ตึกที่2")
-            ->get();
+            $ymsearch = garbage::select(
+                DB::raw('YEAR(created_at) as year'),
+                DB::raw('MONTH(created_at) as month'))
+                ->groupBy( 'year' , 'month' )
+                ->latest()
+                ->get();
             
 
 
 
 
-        return view('garbage.report', compact('garbageA', 'garbageB', 'garbageC', 'garbageD', 'garbageX', 'Other', 'gA', 'gB', 'gC', 'gD', 'gX', 'gO','building1'));
+        return view('garbage.report', compact
+        ('garbageA', 'garbageB', 'garbageC', 'garbageD', 'garbageX', 'Other','gA', 'gB', 'gC', 'gD', 'gX', 'gO'
+        ,'building1','building2','ymsearch'));
     }
 }

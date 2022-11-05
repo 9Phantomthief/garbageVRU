@@ -90,26 +90,38 @@
                                 <div class="form-group" style="width: 300px; margin: auto;">
                                     <h4 class="text-box-title" style="font-family: 'Kanit', sans-serif; color:black; text-align: center;">ปี/เดือน</h4>
                                     <hr>
+
                                     <br>
-                                    <form action="" method="">
-                                        <select class="form-control" name="" style="font-family: 'Kanit', sans-serif; color:black;">
-                                            <option value="2566">2566</option>
-                                            <option value="2565">2565</option>
-                                            <option value="2564">2564</option>
-                                            <option value="2563">2563</option>
-                                            <option value="2562">2562</option>
-                                            <option value="2561">2561</option>
-                                            <option value="2560">2560</option>
-                                            <option value="2559">2559</option>
-                                            <option value="2558">2558</option>
-                                            <option value="2557">2557</option>
-                                            <option value="2556">2556</option>
+
+                                    <form method="GET" action="{{ url('/report') }}" accept-charset="UTF-8" role="search">
+                                        <select class="form-control" name="ymsearch" id="ymsearch" style="font-family: 'Kanit', sans-serif; color:black;">
+
+                                            @foreach ($ymsearch as $item)
+                                                <option value=""> {{$item}} </option>
+                                            @endforeach
+                                                
                                         </select>
+                                    <br>
+                                        <div class="d-flex justify-content-between">
+                                            <button type="submit" form="from" value="Submit" class="button2" style="font-family: 'Kanit', sans-serif; font-size: 18px; margin: auto;">search</button>
+                                        </div>
                                     </form>
-                                </div><br>
-                                <div class="d-flex justify-content-between">
-                                    <button type="submit" form="from" value="Submit" class="button2" style="font-family: 'Kanit', sans-serif; font-size: 18px; margin: auto;">search</button>
+                                    {{-- <form method="GET" action="{{ url('/report') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
+                                        <div class="input-group">
+                                            <select name="search" >
+                                                @foreach ($ymsearch -> $item)
+                                                <option value=""> $item </option>
+                                                @endforeach
+                                            </select>
+                                        <span class="input-group-append">
+                                            <button class="btn btn-secondary" type="submit">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </span>
+                                        </div>
+                                    </form> --}}
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -160,8 +172,28 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th scope="row" rowspan="5" style="text-align: center;">building</th>
+                                        <th scope="row" rowspan="5" style="text-align: center;">อาคาร 100 ปี</th>
+
                                         @foreach($building1 as $item)
+                                        <tr>
+                                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->created_at }}</td>
+                                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->garbageA }}</td>
+                                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->garbageB }}</td>
+                                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->garbageC }}</td>
+                                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->garbageD }}</td>
+                                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->garbageX }}</td>
+                                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->valueOther }}</td>
+                                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->Note }}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tr>
+
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" rowspan="5" style="text-align: center;">อาคาร 75 ปี</th>
+
+                                        @foreach($building2 as $item)
                                         <tr>
                                             <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->created_at }}</td>
                                             <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->garbageA }}</td>
