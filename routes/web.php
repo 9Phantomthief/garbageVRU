@@ -27,6 +27,7 @@ Route::get('admin/home', 'HomeController@adminHome')->name('admin.home')->middle
 Route::get('admin/home', 'HomeController@total')->name('admin.home')->middleware('is_admin');
 Route::resource('garbage', 'garbageController');
 Route::get('report', 'reportController@index');
+Route::get('/pdf', 'PDFController@pdf');
 
 Route::get('numre/{id}/create', 'numreController@create');
 Route::resource('menber', 'menberController');

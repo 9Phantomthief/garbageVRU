@@ -17,6 +17,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "2.4",
         "laravelcollective/html": "^6.2",
+        "mpdf/mpdf": "^8.1",
         "nesbot/carbon": "^2.61",
         "phattarachai/thaidate": "^12.1"
     },

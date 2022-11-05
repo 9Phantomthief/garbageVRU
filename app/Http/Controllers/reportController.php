@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\garbage;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class reportController extends Controller
 {
@@ -17,12 +18,12 @@ class reportController extends Controller
         $garbageX = garbage::select('garbageX')->get()->sum('garbageX');
         $Other    = garbage::select('valueOther')->get()->sum('valueOther');
 
-        $date_now = date ("Y-m-d");
-        $lastmonth_sp = explode("-",$date_now);
+        $date_now = date("Y-m-d");
+        $lastmonth_sp = explode("-", $date_now);
         $lastmonth = $lastmonth_sp[1];
-        
-        $lastmonth5_st = date ('Y-m-d', strtotime ($date_now . "-4 Months"));
-        $lastmonth5_sp = explode("-",$lastmonth5_st);
+
+        $lastmonth5_st = date('Y-m-d', strtotime($date_now . "-4 Months"));
+        $lastmonth5_sp = explode("-", $lastmonth5_st);
         $lastmonth5 = $lastmonth5_sp[1];
 
         $keyword = $request->get('search');
@@ -34,10 +35,10 @@ class reportController extends Controller
             DB::raw('MONTH(created_at) as month')
         )
             ->whereYear('created_at', date('Y'))
-            ->whereMonth('created_at', ">=" , $lastmonth5 )
-            ->whereMonth('created_at', "<=" , $lastmonth )
+            ->whereMonth('created_at', ">=", $lastmonth5)
+            ->whereMonth('created_at', "<=", $lastmonth)
             ->groupBy('year', 'month')
-            ->orderBy('month' , 'ASC')
+            ->orderBy('month', 'ASC')
             ->latest()->take(5)
             ->get();
 
@@ -47,10 +48,10 @@ class reportController extends Controller
             DB::raw('MONTH(created_at) as month')
         )
             ->whereYear('created_at', date('Y'))
-            ->whereMonth('created_at', ">=" , $lastmonth5 )
-            ->whereMonth('created_at', "<=" , $lastmonth )
+            ->whereMonth('created_at', ">=", $lastmonth5)
+            ->whereMonth('created_at', "<=", $lastmonth)
             ->groupBy('year', 'month')
-            ->orderBy('month' , 'ASC')
+            ->orderBy('month', 'ASC')
             ->latest()->take(5)
             ->get();
 
@@ -60,10 +61,10 @@ class reportController extends Controller
             DB::raw('MONTH(created_at) as month')
         )
             ->whereYear('created_at', date('Y'))
-            ->whereMonth('created_at', ">=" , $lastmonth5 )
-            ->whereMonth('created_at', "<=" , $lastmonth )
+            ->whereMonth('created_at', ">=", $lastmonth5)
+            ->whereMonth('created_at', "<=", $lastmonth)
             ->groupBy('year', 'month')
-            ->orderBy('month' , 'ASC')
+            ->orderBy('month', 'ASC')
             ->latest()->take(5)
             ->get();
 
@@ -73,10 +74,10 @@ class reportController extends Controller
             DB::raw('MONTH(created_at) as month')
         )
             ->whereYear('created_at', date('Y'))
-            ->whereMonth('created_at', ">=" , $lastmonth5 )
-            ->whereMonth('created_at', "<=" , $lastmonth )
+            ->whereMonth('created_at', ">=", $lastmonth5)
+            ->whereMonth('created_at', "<=", $lastmonth)
             ->groupBy('year', 'month')
-            ->orderBy('month' , 'ASC')
+            ->orderBy('month', 'ASC')
             ->latest()->take(5)
             ->get();
 
@@ -86,10 +87,10 @@ class reportController extends Controller
             DB::raw('MONTH(created_at) as month')
         )
             ->whereYear('created_at', date('Y'))
-            ->whereMonth('created_at', ">=" , $lastmonth5 )
-            ->whereMonth('created_at', "<=" , $lastmonth )
+            ->whereMonth('created_at', ">=", $lastmonth5)
+            ->whereMonth('created_at', "<=", $lastmonth)
             ->groupBy('year', 'month')
-            ->orderBy('month' , 'ASC')
+            ->orderBy('month', 'ASC')
             ->latest()->take(5)
             ->get();
 
@@ -99,53 +100,80 @@ class reportController extends Controller
             DB::raw('MONTH(created_at) as month')
         )
             ->whereYear('created_at', date('Y'))
-            ->whereMonth('created_at', ">=" , $lastmonth5 )
-            ->whereMonth('created_at', "<=" , $lastmonth )
+            ->whereMonth('created_at', ">=", $lastmonth5)
+            ->whereMonth('created_at', "<=", $lastmonth)
             ->groupBy('year', 'month')
-            ->orderBy('month' , 'ASC')
+            ->orderBy('month', 'ASC')
             ->latest()->take(5)
             ->get();
 
 
-            if (!empty($keyword)) {
-                $building1 = garbage::where('created_at', 'LIKE', "%$keyword%")
-                    ->where('building', 'LIKE', "%อาคาร 100 ปี%")
-                    ->latest()
-                    ->get();
-            } else {
-                $building1 = garbage::whereYear('created_at', date('Y'))
-                        ->whereMonth('created_at', "=" , $lastmonth )
-                        ->where('building', 'LIKE', "%อาคาร 100 ปี%")
-                        ->latest()
-                        ->get();
-            }
-            
-            if (!empty($keyword)) {
-                $building2 = garbage::where('created_at', 'LIKE', "%$keyword%")
-                    ->where('building', 'LIKE', "%อาคาร 75 ปี%")
-                    ->latest()
-                    ->get();
-            } else {
-                $building2 = garbage::whereYear('created_at', date('Y'))
-                        ->whereMonth('created_at', "=" , $lastmonth )
-                        ->where('building', 'LIKE', "%อาคาร 75 ปี%")
-                        ->latest()
-                        ->get();
-            }
-
-            $ymsearch = garbage::select(
-                DB::raw('YEAR(created_at) as year'),
-                DB::raw('MONTH(created_at) as month'))
-                ->groupBy( 'year' , 'month' )
+        if (!empty($keyword)) {
+            $building1 = garbage::where('created_at', '=', "%$keyword%")
+                ->where('building', 'LIKE', "%อาคาร 100 ปี%")
                 ->latest()
                 ->get();
-            
+        } else {
+            $building1 = garbage::whereYear('created_at', date('Y'))
+                ->whereMonth('created_at', "=", $lastmonth)
+                ->where('building', 'LIKE', "%อาคาร 100 ปี%")
+                ->latest()
+                ->get();
+        }
+
+        if (!empty($keyword)) {
+            $building2 = garbage::where('created_at', 'LIKE', "%$keyword%")
+                ->where('building', 'LIKE', "%อาคาร 75 ปี%")
+                ->latest()
+                ->get();
+        } else {
+            $building2 = garbage::whereYear('created_at', date('Y'))
+                ->whereMonth('created_at', "=", $lastmonth)
+                ->where('building', 'LIKE', "%อาคาร 75 ปี%")
+                ->latest()
+                ->get();
+        }
+
+        if (!empty($ymsearch)) {
+            $ymsearch = garbage::select(
+                DB::raw('YEAR(created_at) as year'),
+                DB::raw('MONTH(created_at) as month')
+            )
+                ->groupBy('year', 'month')
+                ->latest()
+                ->get();
+        } else {
+            $ymsearch = garbage::select(
+                DB::raw('YEAR(created_at) as year'),
+                DB::raw('MONTH(created_at) as month')
+            )
+                ->groupBy('year', 'month')
+                ->latest()
+                ->get();
+        }
 
 
 
 
-        return view('garbage.report', compact
-        ('garbageA', 'garbageB', 'garbageC', 'garbageD', 'garbageX', 'Other','gA', 'gB', 'gC', 'gD', 'gX', 'gO'
-        ,'building1','building2','ymsearch'));
+
+
+        return view('garbage.report', compact(
+            'garbageA',
+            'garbageB',
+            'garbageC',
+            'garbageD',
+            'garbageX',
+            'Other',
+            'gA',
+            'gB',
+            'gC',
+            'gD',
+            'gX',
+            'gO',
+            'building1',
+            'building2',
+            'ymsearch',
+            'keyword'
+        ));
     }
 }

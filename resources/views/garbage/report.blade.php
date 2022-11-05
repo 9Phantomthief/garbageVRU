@@ -10,7 +10,8 @@
                 <div class="card-header ">
                     <h5 class="card-title" style="font-family: 'Kanit', sans-serif; color:black; margin-left: 30px;"><u>ข้อมูลรายงานขยะโดยรวม หน่วย : กิโลกรัม</u>
                         <button type="button" style="font-family: 'Kanit', sans-serif; text-align: center; margin-right: 30px;" class="btn btn btn-sm pull-right">
-                            <i class="fas fa-file-export" aria-hidden="true"></i>PDF
+                            <i class="fas fa-file-export" aria-hidden="true"></i>
+                            <a href="{{ url('/pdf') }}">PDF</a>
                         </button>
                     </h5>
                 </div>
@@ -22,10 +23,11 @@
                             <div class="col-6">
                                 <div class="row">
                                     <div class="col-9">
-                                        <canvas id=chartgarbage width="400" height="100"></canvas>
+                                        <canvas id=piegarbage width="400" height="100"></canvas>
                                         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                                         <script>
-                                            var ctx = document.getElementById("chartgarbage").getContext('2d');
+                                            var ctx = document.getElementById("piegarbage").getContext('2d');
+                                            
                                             var gA = @json($gA).reverse();
                                             var yA = gA.map(function(item) {
                                                 return Math.round(item.total_gA)
@@ -94,7 +96,7 @@
                                     <br>
 
                                     <form method="GET" action="{{ url('/report') }}" accept-charset="UTF-8" role="search">
-                                        <select class="form-control" name="ymsearch" id="ymsearch" style="font-family: 'Kanit', sans-serif; color:black;">
+                                        <select class="form-control" name="search" id="search" style="font-family: 'Kanit', sans-serif; color:black;">
 
                                             @foreach ($ymsearch as $item)
                                                 <option value=""> {{$item}} </option>
@@ -103,9 +105,11 @@
                                         </select>
                                     <br>
                                         <div class="d-flex justify-content-between">
-                                            <button type="submit" form="from" value="Submit" class="button2" style="font-family: 'Kanit', sans-serif; font-size: 18px; margin: auto;">search</button>
+                                            <button type="submit" form="from" value="submit" class="button2" style="font-family: 'Kanit', sans-serif; font-size: 18px; margin: auto;"
+                                            >search</button>
                                         </div>
                                     </form>
+                                    {{$keyword}}
                                     {{-- <form method="GET" action="{{ url('/report') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
                                         <div class="input-group">
                                             <select name="search" >
@@ -172,7 +176,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th scope="row" rowspan="5" style="text-align: center;">อาคาร 100 ปี</th>
+                                        <th scope="row" rowspan="100" style="text-align: center;">อาคาร 100 ปี</th>
 
                                         @foreach($building1 as $item)
                                         <tr>
@@ -191,7 +195,7 @@
                                 </tbody>
                                 <tbody>
                                     <tr>
-                                        <th scope="row" rowspan="5" style="text-align: center;">อาคาร 75 ปี</th>
+                                        <th scope="row" rowspan="100" style="text-align: center;">อาคาร 75 ปี</th>
 
                                         @foreach($building2 as $item)
                                         <tr>

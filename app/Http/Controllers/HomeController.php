@@ -68,18 +68,6 @@ class HomeController extends Controller
             ->orderBy('month' , 'ASC')
             ->latest()->take(5)
             ->get();
-            
-
-
-
-        // foreach ($gA as $key ) {
-        //     echo "<br>" ;
-        //     echo "<br>" ;
-        //     echo $key->month ;
-        // }
-
-        // exit();
-
 
         $gB = garbage::select(
             DB::raw('sum(garbageB) as total_gB'),
