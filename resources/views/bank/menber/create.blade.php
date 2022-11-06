@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
     <div class="container">
@@ -20,10 +20,10 @@
                             </ul>
                         @endif
 
-                        <form method="POST" action="{{ url('/numre') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                        <form method="POST" action="{{ url('/menber') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
-                            @include ('bank.numre.form', ['formMode' => 'create'])
+                            @include ('bank.menber.form', ['formMode' => 'create'])
 
                         </form>
 

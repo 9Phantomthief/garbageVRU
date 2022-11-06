@@ -38,7 +38,7 @@
                 <img src="{{ asset('image/logo01.png') }}" , style="height: 90px; width: 100px">
 
                 <div class="row">
-                    <a class="navbar-brand" href="{{ url('admin/home') }}" style="font-size: 28px; font-weight: bold; font-family: 'Kanit', sans-serif; color:black">
+                    <a class="navbar-brand" href="{{ url('menber') }}" style="font-size: 28px; font-weight: bold; font-family: 'Kanit', sans-serif; color:black">
                         &nbsp;&nbsp;&nbsp;มหาวิทยาลัยราชภัฏวไลยอลงกรณ์&nbsp;&nbsp;ในพระบรมราชูปถัมภ์</a>
                     <div class="w-100"></div>
                     <div class="col" style="font-size: 18px; font-weight: bold; font-family: 'Kanit', sans-serif; color:black">&nbsp;&nbsp;ระบบธนาคารจัดการขยะ</div>

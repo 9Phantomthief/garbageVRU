@@ -1,10 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="div row"><a href="{{ url('/menber') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a></div>
+            <div class="col-lg-12">
+                <div class="row">
+                    <a href="{{ url('/menber') }}" title="ย้อนกลับ"><button class="btn btn-warning btn-md"><i class="fa fa-arrow-left" aria-hidden="true"></i> ย้อนกลับ</button></a>
+                </div>
                 <div class="card">
                     <div class="card-body">
 
@@ -27,6 +28,5 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 @endsection

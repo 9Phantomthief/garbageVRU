@@ -27,7 +27,6 @@ class reportController extends Controller
         $lastmonth5 = $lastmonth5_sp[1];
 
         $keyword = $request->get('search');
-        $ymsearch = $request->get('ymsearch');
 
         $gA = garbage::select(
             DB::raw('sum(garbageA) as total_gA'),
@@ -107,6 +106,14 @@ class reportController extends Controller
             ->latest()->take(5)
             ->get();
 
+            $ymsearch = garbage::select(
+                DB::raw('YEAR(created_at) as year'),
+                DB::raw('MONTH(created_at) as month')
+            )
+                ->groupBy('year', 'month')
+                ->latest()
+                ->get();
+        
 
         if (!empty($keyword)) {
             $building1 = garbage::where('created_at', '=', "%$keyword%")
@@ -133,26 +140,6 @@ class reportController extends Controller
                 ->latest()
                 ->get();
         }
-
-        if (!empty($ymsearch)) {
-            $ymsearch = garbage::select(
-                DB::raw('YEAR(created_at) as year'),
-                DB::raw('MONTH(created_at) as month')
-            )
-                ->groupBy('year', 'month')
-                ->latest()
-                ->get();
-        } else {
-            $ymsearch = garbage::select(
-                DB::raw('YEAR(created_at) as year'),
-                DB::raw('MONTH(created_at) as month')
-            )
-                ->groupBy('year', 'month')
-                ->latest()
-                ->get();
-        }
-
-
 
 
 

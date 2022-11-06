@@ -199,10 +199,10 @@
 
                     <script>
                         var ctx = document.getElementById("chartgarbage").getContext('2d');
-
+                        var m_nameThai = ["","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤษจิกายน","ธันวาคม"];
                         var gA = @json($gA).reverse();
                         var x = gA.map(function(item) {
-                            return item.month + "/" + item.year
+                            return m_nameThai[item.month] + " " + (item.year+543)
                         });
                         var yA = gA.map(function(item) {
                             return Math.round(item.total_gA)

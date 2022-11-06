@@ -5,14 +5,14 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <a class="btn btn-warning btn-lg" style="font-family: 'Kanit', sans-serif; font-size: 18px" href="{{ url('/admin/home') }}" class="btn btn-warning btn-sm" title="ย้อนกลับ">ย้อนกลับ</a>
+            <a class="btn btn-warning btn-lg" style="font-family: 'Kanit', sans-serif; font-size: 18px" href="{{ url('/admin/home') }}" title="ย้อนกลับ">ย้อนกลับ</a>
             <div class="card ">
                 <div class="card-header ">
                     <h5 class="card-title" style="font-family: 'Kanit', sans-serif; color:black; margin-left: 30px;"><u>ข้อมูลรายงานขยะโดยรวม หน่วย : กิโลกรัม</u>
-                        <button type="button" style="font-family: 'Kanit', sans-serif; text-align: center; margin-right: 30px;" class="btn btn btn-sm pull-right">
-                            <i class="fas fa-file-export" aria-hidden="true"></i>
-                            <a href="{{ url('/pdf') }}">PDF</a>
-                        </button>
+                        
+                            <a style="font-family: 'Kanit', sans-serif; text-align: center; margin-right: 30px;" class="btn btn btn-sm pull-right" class="btn btn-warning btn-lg" href="{{ url('/pdf') }}" style="color: aliceblue">
+                                <i class="fas fa-file-export" aria-hidden="true"></i>PDF</a>
+
                     </h5>
                 </div>
                 <hr>
@@ -26,11 +26,12 @@
                                         <canvas id=piegarbage width="400" height="100"></canvas>
                                         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                                         <script>
+                                            
                                             var ctx = document.getElementById("piegarbage").getContext('2d');
                                             
                                             var gA = @json($gA).reverse();
                                             var yA = gA.map(function(item) {
-                                                return Math.round(item.total_gA)
+                                                return Math.round(item.total_gA) 
                                             });
                                             var gB = @json($gB).reverse();
                                             var yB = gB.map(function(item) {
@@ -52,21 +53,51 @@
                                             var yO = gO.map(function(item) {
                                                 return Math.round(item.total_gO)
                                             });
-
+                                            console.log(yA);
+                                            
                                             var myChart = new Chart(ctx, {
                                                 type: 'pie',
                                                 data: {
                                                     labels: ["ขยะทั่วไป","ขยะรีไซเคิล","ขยะย่อยสลายได้","ขยะอันตราย","ขยะห้องปฏิบัติการ","ขยะอื่นๆ"],
-                                                    datasets: [{
+                                                    datasets: 
+                                                    [{
                                                         label: ["ขยะทั่วไป","ขยะรีไซเคิล","ขยะย่อยสลายได้","ขยะอันตราย","ขยะห้องปฏิบัติการ","ขยะอื่นๆ"],
                                                         backgroundColor: ['#003EFF', '#D6313B', '#B3D236', '#D089DC', '#463327', '#FBC700'],
                                                         data:   yA,
-                                                                yB,
-                                                                yC,
-                                                                yD,
-                                                                yX,
-                                                                yO
-                                                    }],
+                                                               
+                                                    }]
+                                                //     [{
+                                                //         label: "ขยะทั่วไป",
+                                                //         backgroundColor: '#003EFF',
+                                                //         data: yA
+                                                //     },
+                                                //     {
+                                                //         label: "ขยะรีไซเคิล",
+                                                //         backgroundColor: '#D6313B',
+                                                //         data: yB
+                                                //     },
+                                                //     {
+                                                //         label: "ขยะย่อยสลายได้",
+                                                //         backgroundColor: '#B3D236',
+                                                //         data: yC
+                                                //     },
+                                                //     {
+                                                //         label: "ขยะอันตราย",
+                                                //         backgroundColor: '#D089DC',
+                                                //         data: yD
+                                                //     },
+                                                //     {
+                                                //         label: "ขยะห้องปฏิบัติการ",
+                                                //         backgroundColor: '#463327',
+                                                //         data: yX
+                                                //     },
+                                                //     {
+                                                //         label: "ขยะอื่นๆ",
+                                                //         backgroundColor: '#FBC700',
+                                                //         data: yO
+                                                //     }
+                                                // ]
+                                                    ,
                                                 },
                                                 options: {
                                                     scales: {
@@ -95,18 +126,19 @@
 
                                     <br>
 
-                                    <form method="GET" action="{{ url('/report') }}" accept-charset="UTF-8" role="search">
+                                    <form method="GET" action="{{ url('/report') }}" accept-charset="UTF-8">
                                         <select class="form-control" name="search" id="search" style="font-family: 'Kanit', sans-serif; color:black;">
 
                                             @foreach ($ymsearch as $item)
-                                                <option value=""> {{$item}} </option>
-                                            @endforeach
-                                                
+                                                <option value=""> ปี {{$item->year+543}} เดือน {{$item->month}}</option>
+                                                @endforeach
+                                            
                                         </select>
                                     <br>
                                         <div class="d-flex justify-content-between">
-                                            <button type="submit" form="from" value="submit" class="button2" style="font-family: 'Kanit', sans-serif; font-size: 18px; margin: auto;"
-                                            >search</button>
+                                            <button type="submit" class="button2" style="font-family: 'Kanit', sans-serif; font-size: 18px; margin: auto;"
+                                            >ค้นหา</button>
+                                            
                                         </div>
                                     </form>
                                     {{$keyword}}
@@ -176,11 +208,11 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th scope="row" rowspan="100" style="text-align: center;">อาคาร 100 ปี</th>
+                                        <th scope="row" rowspan="0" style="text-align: center;">อาคาร 100 ปี</th>
 
                                         @foreach($building1 as $item)
                                         <tr>
-                                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->created_at }}</td>
+                                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->created_at->thaidate() }}</td>
                                             <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->garbageA }}</td>
                                             <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->garbageB }}</td>
                                             <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->garbageC }}</td>
@@ -199,7 +231,7 @@
 
                                         @foreach($building2 as $item)
                                         <tr>
-                                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->created_at }}</td>
+                                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->created_at->thaidate() }}</td>
                                             <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->garbageA }}</td>
                                             <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->garbageB }}</td>
                                             <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->garbageC }}</td>

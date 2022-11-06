@@ -10,8 +10,8 @@
             font-family: "THSarabunNew";
             width: 100%;
             height: 100%;
-            margin: 0;
-            padding: 0;
+            margin: 20px;
+            padding: 10px;
             background-color: #FAFAFA;
             font: 12pt "Tahoma";
         }
@@ -50,7 +50,7 @@
 
         @page {
             size: A4;
-            margin: 0;
+            padding: 15px;
         }
 
         @media print {
@@ -107,10 +107,7 @@
 
     <h1>TABLE REPORT</h1>
 
-    <div class="justify-content-between">
-        <div class="row">
-            <div class="col-12">
-                <table class="table table-hover">
+                <table class="table">
                     <thead>
                         <tr>
                             <th style="text-align: center;  font-family: 'Kanit', sans-serif">ชื่ออาคาร</th>
@@ -126,19 +123,19 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row" rowspan="6" style="text-align: center;">อาคาร 100 ปี</th>
+                            @foreach ($count1 as $item)
+                            <th scope="row" rowspan="{{$item->count+1}}" style="text-align: center;">อาคาร 100 ปี</th>
+                            @endforeach
 
                             @foreach ($building1 as $item)
                         <tr>
-                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->created_at }}
-                            </td>
+                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->created_at }}</td>
                             <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->garbageA }}</td>
                             <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->garbageB }}</td>
                             <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->garbageC }}</td>
                             <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->garbageD }}</td>
                             <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->garbageX }}</td>
-                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->valueOther }}
-                            </td>
+                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->valueOther }}</td>
                             <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item->Note }}</td>
                         </tr>
                         @endforeach
@@ -147,7 +144,9 @@
                     </tbody>
                     <tbody>
                         <tr>
-                            <th scope="row" rowspan="6" style="text-align: center;">อาคาร 75 ปี</th>
+                            @foreach ($count2 as $item)
+                            <th scope="row" rowspan="{{$item->count+1}}" style="text-align: center;">อาคาร 75 ปี</th>
+                            @endforeach
 
                             @foreach ($building2 as $item)
                         <tr>
@@ -172,9 +171,6 @@
 
                     </tbody>
                 </table>
-            </div>
-        </div>
-    </div>
 
 </body>
 

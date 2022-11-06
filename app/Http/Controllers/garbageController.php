@@ -31,6 +31,7 @@ class garbageController extends Controller
                 ->orWhere('other', 'LIKE', "%$keyword%")
                 ->orWhere('Note', 'LIKE', "%$keyword%")
                 ->orWhere('valueOther', 'LIKE', "%$keyword%")
+                ->orWhere('created_at', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $garbage = garbage::latest()->paginate($perPage);
@@ -100,7 +101,7 @@ class garbageController extends Controller
     {
         $garbage = garbage::findOrFail($id);
 
-        return view('garbage.edit', compact('garbage'));
+        return view('garbage.form-edit', compact('garbage'));
     }
 
     /**
