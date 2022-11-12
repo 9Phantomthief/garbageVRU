@@ -7,6 +7,7 @@ use App\Http\Requests;
 
 use App\Models\numre;
 use Illuminate\Http\Request;
+use App\Models\menber;
 
 class numreController extends Controller
 {
@@ -36,11 +37,18 @@ class numreController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function create($id)
+    public function create()
     {
-        $numre = numre::findOrFail($id);
+        // $numre = numre::findOrFail($id);
         return view('bank.numre.create');
     }
+
+    public function create_numre($id_member)
+    {
+        $user = menber::findOrFail($id_member);
+        return view('bank.numre.create', compact('id_member','user'));
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -53,10 +61,19 @@ class numreController extends Controller
     {
         
         $requestData = $request->all();
+        $new_point = $requestData["num_re"];
+        $id_member = $requestData["id_member"];
         
         numre::create($requestData);
 
-        return redirect('numre')->with('flash_message', 'numre added!');
+        $data_member = menber::findOrFail($id_member);
+        $old_point = $data_member->point;
+        $sum_point = $old_point + $new_point ;
+
+        menber::where('id', $id_member )
+                ->update(['point' => $sum_point]);
+        
+        return redirect('menber')->with('flash_message', 'numre added!');
     }
 
     /**

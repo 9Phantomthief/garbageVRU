@@ -28,6 +28,22 @@ class reportController extends Controller
 
         $keyword = $request->get('search');
 
+        //แยกตัวอักษร
+        $keyword_sp = explode("/", $keyword);
+
+        $years_search = "" ;
+        $month_search = "" ;
+
+        if ( count($keyword_sp) > 1){
+            $years_search = $keyword_sp[0] ;
+            $month_search = $keyword_sp[1] ;
+        }
+        
+        
+
+        
+        
+
         $gA = garbage::select(
             DB::raw('sum(garbageA) as total_gA'),
             DB::raw('YEAR(created_at) as year'),
@@ -116,32 +132,26 @@ class reportController extends Controller
         
 
         if (!empty($keyword)) {
-            $building1 = garbage::where('created_at', '=', "%$keyword%")
+            $building1 = garbage::whereYear('created_at', $years_search)
+                ->whereMonth('created_at', $month_search)
                 ->where('building', 'LIKE', "%อาคาร 100 ปี%")
                 ->latest()
                 ->get();
-        } else {
-            $building1 = garbage::whereYear('created_at', date('Y'))
-                ->whereMonth('created_at', "=", $lastmonth)
-                ->where('building', 'LIKE', "%อาคาร 100 ปี%")
-                ->latest()
-                ->get();
-        }
 
-        if (!empty($keyword)) {
-            $building2 = garbage::where('created_at', 'LIKE', "%$keyword%")
+            $building2 = garbage::whereYear('created_at', $years_search)
+                ->whereMonth('created_at', $month_search)
                 ->where('building', 'LIKE', "%อาคาร 75 ปี%")
                 ->latest()
                 ->get();
         } else {
-            $building2 = garbage::whereYear('created_at', date('Y'))
-                ->whereMonth('created_at', "=", $lastmonth)
-                ->where('building', 'LIKE', "%อาคาร 75 ปี%")
+            $building1 = garbage::where('building', 'LIKE', "%อาคาร 100 ปี%")
+                ->latest()
+                ->get();
+
+            $building2 = garbage::where('building', 'LIKE', "%อาคาร 75 ปี%")
                 ->latest()
                 ->get();
         }
-
-
 
 
         return view('garbage.report', compact(
@@ -160,7 +170,9 @@ class reportController extends Controller
             'building1',
             'building2',
             'ymsearch',
-            'keyword'
+            'keyword',
+            'years_search',
+            'month_search'
         ));
     }
 }

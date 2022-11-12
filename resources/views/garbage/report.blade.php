@@ -126,36 +126,34 @@
 
                                     <br>
 
-                                    <form method="GET" action="{{ url('/report') }}" accept-charset="UTF-8">
+                                    <form method="GET" action="{{ url('/report') }}" accept-charset="UTF-8" role="search">
                                         <select class="form-control" name="search" id="search" style="font-family: 'Kanit', sans-serif; color:black;">
-
+                                            
+                                            {{-- กรณีมีการค้นหาเดือน/ปี --}}
+                                            @if(!empty($years_search))
+                                                <option value="{{$years_search}}/{{$month_search}}" selected>ปี {{$years_search+543}} เดือน {{$month_search}}</option>
+                                            @else
+                                                <option value="" selected>กรุณาเลือก...</option>
+                                            @endif
+                                                <option value="">____________________</option>
                                             @foreach ($ymsearch as $item)
-                                                <option value=""> ปี {{$item->year+543}} เดือน {{$item->month}}</option>
-                                                @endforeach
+                                                <option value="{{$item->year}}/{{$item->month}}"> ปี {{$item->year+543}} เดือน {{$item->month}}</option>
+                                            @endforeach
                                             
                                         </select>
+                                       
                                     <br>
                                         <div class="d-flex justify-content-between">
                                             <button type="submit" class="button2" style="font-family: 'Kanit', sans-serif; font-size: 18px; margin: auto;"
                                             >ค้นหา</button>
+                                    
+                                            <a href="{{ url('/report') }}" type="submit" class="button2" style="font-family: 'Kanit', sans-serif; font-size: 18px; margin: auto;"
+                                            > ล้างการค้นหา </a>
                                             
                                         </div>
                                     </form>
-                                    {{$keyword}}
-                                    {{-- <form method="GET" action="{{ url('/report') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
-                                        <div class="input-group">
-                                            <select name="search" >
-                                                @foreach ($ymsearch -> $item)
-                                                <option value=""> $item </option>
-                                                @endforeach
-                                            </select>
-                                        <span class="input-group-append">
-                                            <button class="btn btn-secondary" type="submit">
-                                                <i class="fa fa-search"></i>
-                                            </button>
-                                        </span>
-                                        </div>
-                                    </form> --}}
+                                    
+                                    
                                 </div>
                                 
                             </div>

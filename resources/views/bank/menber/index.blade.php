@@ -53,7 +53,7 @@
                                     <tr>
                                         <td style="text-align: center; font-family: 'Kanit', sans-serif">{{ $loop->iteration }}</td>
                                         <td style="text-align: center; font-family: 'Kanit', sans-serif">{{ $item->name }}</td>
-                                        <td style="text-align: center; font-family: 'Kanit', sans-serif">{{ $item->age }}</td>
+                                        <td style="text-align: center; font-family: 'Kanit', sans-serif">{{ $item->age }} ปี</td>
                                         <td style="text-align: center; font-family: 'Kanit', sans-serif">{{ $item->tel }}</td>
                                         <td style="text-align: center; font-family: 'Kanit', sans-serif">{{ $item->point }}</td>
                                         <td style="text-align: center; font-family: 'Kanit', sans-serif">
@@ -67,7 +67,7 @@
                                             </form>
                                         </td>
                                         <td style="text-align: center; font-family: 'Kanit', sans-serif">
-                                            <a href="{{ url('/numre' . $item->id . '/create')}}"  style="text-align: center; font-family: 'Kanit', sans-serif" title="เพิ่มข้อมูล"><button class="btn btn-info btn-sm"><i aria-hidden="true"></i>เพิ่มข้อมูล</button></a>
+                                            <a href="{{ url('/numre/' . $item->id . '/create')}}"  style="text-align: center; font-family: 'Kanit', sans-serif" title="เพิ่มข้อมูล"><button class="btn btn-info btn-sm"><i aria-hidden="true"></i>เพิ่มข้อมูล</button></a>
                                         </td>
 
                                     </tr>

@@ -29,6 +29,6 @@ Route::resource('garbage', 'garbageController');
 Route::get('report', 'reportController@index');
 Route::get('/pdf', 'PDFController@pdf');
 
-Route::get('numre/{id}/create', 'numreController@create');
+Route::get('numre/{id}/create', 'numreController@create_numre');
 Route::resource('menber', 'menberController');
 Route::resource('numre', 'numreController');
