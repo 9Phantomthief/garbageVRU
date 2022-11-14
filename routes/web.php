@@ -32,3 +32,5 @@ Route::get('/pdf', 'PDFController@pdf');
 Route::get('numre/{id}/create', 'numreController@create_numre');
 Route::resource('menber', 'menberController');
 Route::resource('numre', 'numreController');
+// Route::resource('/menber', 'PDFreController');
+Route::resource('typere', 'typereController');

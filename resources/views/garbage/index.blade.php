@@ -37,9 +37,7 @@
                     <a style="margin-left: 50px;">หน่วย : กิโลกรัม</a>
                         
                     </h5>
-
                     
-
                 </div>
                 <div class="table-responsive-md">
                     <table class="table">

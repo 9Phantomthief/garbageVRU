@@ -27,7 +27,7 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/paper-dashboard.css?v=2.0.0') }}" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="{{ asset('demo/demo.css') }}" rel="stylesheet" />
+    {{-- <link href="{{ asset('demo/demo.css') }}" rel="stylesheet" /> --}}
 </head>
 
 <body style="background-color: #F7F39A;">

@@ -5,11 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Models\menber;
-use App\Models\numre;
+use App\Models\typere;
 use Illuminate\Http\Request;
 
-class menberController extends Controller
+class typereController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,16 +21,14 @@ class menberController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $menber = menber::where('name', 'LIKE', "%$keyword%")
-                ->orWhere('age', 'LIKE', "%$keyword%")
-                ->orWhere('tel', 'LIKE', "%$keyword%")
-                ->orWhere('point', 'LIKE', "%$keyword%")
+            $typere = typere::where('name', 'LIKE', "%$keyword%")
+                ->orWhere('price', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $menber = menber::latest()->paginate($perPage);
+            $typere = typere::latest()->paginate($perPage);
         }
 
-        return view('bank.menber.index', compact('menber'));
+        return view('typere.index', compact('typere'));
     }
 
     /**
@@ -41,7 +38,7 @@ class menberController extends Controller
      */
     public function create()
     {
-        return view('bank.menber.create');
+        return view('typere.create');
     }
 
     /**
@@ -56,9 +53,9 @@ class menberController extends Controller
         
         $requestData = $request->all();
         
-        menber::create($requestData);
+        typere::create($requestData);
 
-        return redirect('menber')->with('flash_message', 'menber added!');
+        return redirect('typere')->with('flash_message', 'typere added!');
     }
 
     /**
@@ -70,15 +67,9 @@ class menberController extends Controller
      */
     public function show($id)
     {
-        $menber = menber::findOrFail($id);
+        $typere = typere::findOrFail($id);
 
-        $a = $id;
-
-        $showdatere = numre::where('id_member', 'LIKE', $a)
-                        ->get();
-
-
-        return view('bank.menber.show', compact('menber','showdatere'));
+        return view('typere.show', compact('typere'));
     }
 
     /**
@@ -90,9 +81,9 @@ class menberController extends Controller
      */
     public function edit($id)
     {
-        $menber = menber::findOrFail($id);
+        $typere = typere::findOrFail($id);
 
-        return view('bank.menber.edit', compact('menber'));
+        return view('typere.edit', compact('typere'));
     }
 
     /**
@@ -108,10 +99,10 @@ class menberController extends Controller
         
         $requestData = $request->all();
         
-        $menber = menber::findOrFail($id);
-        $menber->update($requestData);
+        $typere = typere::findOrFail($id);
+        $typere->update($requestData);
 
-        return redirect('menber')->with('flash_message', 'menber updated!');
+        return redirect('typere')->with('flash_message', 'typere updated!');
     }
 
     /**
@@ -123,8 +114,8 @@ class menberController extends Controller
      */
     public function destroy($id)
     {
-        menber::destroy($id);
+        typere::destroy($id);
 
-        return redirect('menber')->with('flash_message', 'menber deleted!');
+        return redirect('typere')->with('flash_message', 'typere deleted!');
     }
 }

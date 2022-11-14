@@ -39,11 +39,6 @@ class reportController extends Controller
             $month_search = $keyword_sp[1] ;
         }
         
-        
-
-        
-        
-
         $gA = garbage::select(
             DB::raw('sum(garbageA) as total_gA'),
             DB::raw('YEAR(created_at) as year'),

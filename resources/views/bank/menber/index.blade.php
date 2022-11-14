@@ -5,7 +5,9 @@
         <div class="justify-content-center">
             <div class="col-lg-12">
                 <div class="row">
-                    <a href="{{ url('/menber/create') }}" class="btn btn-info btn-lg" style="font-family: 'Kanit', sans-serif; font-size: 18px" title="เพิ่มข้อมูล">เพิ่มข้อมูล</a>
+                    <a href="{{ url('/menber/create') }}" class="btn btn-info btn-lg" style="font-family: 'Kanit', sans-serif; font-size: 18px" title="เพิ่มข้อมูล">เพิ่มบัญชี</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{{ url('/menber/report') }}" class="btn btn-success btn-lg" style="font-family: 'Kanit', sans-serif; font-size: 18px" title="รายงาน">แลกคะแนน</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <a href="{{ url('/menber/report') }}" class="btn btn-warning btn-lg" style="font-family: 'Kanit', sans-serif; font-size: 18px" title="รายงาน">รายงาน</a>
                     <a href="{{ url('/admin/home') }}" class="btn btn-success btn-lg" style="font-family: 'Kanit', sans-serif; font-size: 18px; position:absolute; right:0%" title="">ระบบจัดการขยะ</a>
@@ -18,9 +20,6 @@
                 <div class="card">
                     <div class="card-header" style="font-family: 'Kanit', sans-serif; position:absolute; left:5%"><h4>ตารางรายชื่อ</h4></div>
                     <div class="card-body">
-                        {{-- <a href="{{ url('/menber/create') }}" class="btn btn-success btn-sm" title="Add New menber">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
-                        </a> --}}
 
                         <form method="GET" action="{{ url('/menber') }}" accept-charset="UTF-8" class="form-inline my-2 my-md-0 float-right" role="search">
                             <div class="input-group">
@@ -57,17 +56,19 @@
                                         <td style="text-align: center; font-family: 'Kanit', sans-serif">{{ $item->tel }}</td>
                                         <td style="text-align: center; font-family: 'Kanit', sans-serif">{{ $item->point }}</td>
                                         <td style="text-align: center; font-family: 'Kanit', sans-serif">
-                                            <a href="{{ url('/menber/' . $item->id) }}"  style="text-align: center; font-family: 'Kanit', sans-serif" title="รายละเอียด"><button class="btn btn-info btn-sm"><i aria-hidden="true"></i>รายละเอียด</button></a>
-                                            <a href="{{ url('/menber/' . $item->id . '/edit') }}" title="แก้ไข"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>แก้ไข</button></a>
+                                            <a href="{{ url('/menber/' . $item->id) }}" title="รายละเอียด"><button class="btn btn-info btn-sm" style="text-align: center; font-family: 'Kanit', sans-serif; font-size: 14px;" >รายละเอียด</button></a>
+                                            <a href="{{ url('/menber/' . $item->id . '/edit') }}" title="แก้ไข"><button class="btn btn-primary btn-sm" style="text-align: center; font-family: 'Kanit', sans-serif; font-size: 14px;" >แก้ไข</button></a>
 
                                             <form method="POST" action="{{ url('/menber' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm" title="ลบ" onclick="return confirm(&quot;ยืนยันการลบข้อมูล?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i>ลบ</button>
+                                                <button type="submit" class="btn btn-danger btn-sm" title="ลบ" style="text-align: center; font-family: 'Kanit', sans-serif; font-size: 14px;" onclick="return confirm(&quot;ยืนยันการลบข้อมูล?&quot;)">ลบ</button>
                                             </form>
+                                            
                                         </td>
                                         <td style="text-align: center; font-family: 'Kanit', sans-serif">
-                                            <a href="{{ url('/numre/' . $item->id . '/create')}}"  style="text-align: center; font-family: 'Kanit', sans-serif" title="เพิ่มข้อมูล"><button class="btn btn-info btn-sm"><i aria-hidden="true"></i>เพิ่มข้อมูล</button></a>
+                                            <a href="{{ url('/numre/' . $item->id . '/create')}}"  title="เพิ่มข้อมูล"><button class="btn btn-info btn-sm" style="text-align: center; font-family: 'Kanit', sans-serif; font-size: 14px;">เพิ่มข้อมูล</button></a>
+                                            <a href="{{ url('/menber/' . $item->id) }}" title="รายละเอียด"><button class="btn btn-warning btn-sm" style="text-align: center; font-family: 'Kanit', sans-serif; font-size: 14px;">พิมพ์</button></a>
                                         </td>
 
                                     </tr>

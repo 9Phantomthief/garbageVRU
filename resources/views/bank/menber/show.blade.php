@@ -49,7 +49,31 @@
                                         <td> {{ $menber->point }} </td>
                                     </tr>
                                 </tbody>
+                                
                             </table>
+
+                            <div class="table-responsive-md">
+                                <table class="table">
+                                    <thead class="table table-hover">
+                                        <tr>
+                                            
+                                            <td style="text-align: center; font-family: 'Kanit', sans-serif">ลำดับ</td>
+                                            <td style="text-align: center; font-family: 'Kanit', sans-serif">เวลาที่สร้าง</td>
+                                            <td style="text-align: center; font-family: 'Kanit', sans-serif">จำนวน</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($showdatere as $item)
+                                        <tr>
+                                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $loop->iteration }}</td>
+                                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item -> created_at }}</td>
+                                            <td style="text-align: center;  font-family: 'Kanit', sans-serif">{{ $item -> num_re }}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+
                         </div>
 
                     </div>
